@@ -1,17 +1,19 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express')
+const router = express.Router()
+const bodyParser = require('body-parser');
+const cors = require('cors')
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  
-  let dataArr=[
-    {name: "Tin_Godlike",age:12},
-    {name: "Hello World", age:13}
-  ];
- 
-  res.json({
-    data: dataArr
-  })
-});
+const UserController = require('../controller/user')
 
-module.exports = router;
+
+
+router.use(cors())
+const urlencodedParser = bodyParser.urlencoded({ extended: false });
+
+//Sign Up
+router.get('/signup',UserController.getSignUp)
+router.post('/signup',UserController.postSignUp)
+
+
+//router.get('/account/:_id',UserController.getEditUser)
+module.exports = router
