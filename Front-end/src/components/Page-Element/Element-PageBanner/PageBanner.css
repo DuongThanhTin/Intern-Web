@@ -1,0 +1,134 @@
+.PageBanner{
+    width: 1180px;
+    height: 513px;
+    margin-top:30px;
+    text-align: center;
+
+}
+
+.banner-image {
+    margin-top: 0px ;
+    margin-bottom: 0px ;
+    padding-top: 90px ;
+    padding-bottom: 150px;  
+    height: 513px;
+    background: #ed1c24 url(https://demo.themeum.com/wordpress/educon/wp-content/uploads/2017/02/banner-1.png?id=1772) !important;
+    background-position: center ;
+    background-repeat: no-repeat ;
+    background-size: cover;
+}
+.banner-text{
+    height: 45px;
+    font-family: Domine;
+    font-size: 48px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 0.94;
+    letter-spacing: normal;
+    text-align: right;
+    margin-right: 73.6px;   
+    color: var(--white);
+    justify-content: center;
+	-ms-align-items: center;
+	align-items: center;
+}
+
+.banner-button-1{
+    width: 180px;
+    height: 49px;
+    box-shadow: 0 6px 18px 0 rgba(0, 0, 0, 0.12);
+    background-color: var(--pale-orange);
+    border: 1px solid var(--pale-orange);
+    text-align: right;
+    float: right;
+    margin-right: 73.6px;
+    margin-top: 270px;
+    border-radius: 0px;
+}
+
+.banner-button-text-1{
+    height: 24px;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: center;
+    color: var(--white);
+
+    
+}
+.banner-card{
+    margin-top: 20px;
+    margin-bottom: 0px ;
+    padding-bottom: 300px;
+}
+
+.banner-ImgOverlay{
+    top:66%;
+
+}
+
+
+.banner-card-element{
+    width: 280px;
+    height: 405px;
+}
+
+.banner-card-edit-text{
+    padding-bottom: 15px;
+}
+
+.banner-card-text{
+    width: 53px;
+    height: 32px;
+    font-family: Domine;
+    font-size: 24px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-align: center;
+    color: var(--white);
+    display: contents;
+    padding-bottom: 20px;
+}
+.banner-card-border{
+    margin-top: 10px;
+    border: 1px solid var( --greyish-two);
+      
+}
+
+.banner-card-button-edit{
+    display: flex;
+    justify-content: center;
+    
+}
+
+.banner-card-button{
+    width: 140px;
+    height: 40px;
+    border: solid 1px var(--pale-orange);
+    background-color: var(--pale-orange);
+    border-radius: 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.banner-card-button-text{
+    width: 83px;
+    height: 22px;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    letter-spacing: normal;
+    text-align: center;
+    color: var(--white);
+}
