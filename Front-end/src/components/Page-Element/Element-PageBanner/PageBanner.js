@@ -43,7 +43,7 @@ class PageBanner extends Component {
                             <Card.Img variant="top" src="images/example.jpg" />
                             <Card.ImgOverlay className="banner-ImgOverlay">
                                 <div className="banner-card-edit-text">
-                                <Card.Text className="banner-card-text">Men</Card.Text>
+                                <Card.Text className="banner-card-text">Ladies</Card.Text>
                                 <div className="banner-card-border"></div>
                                 </div>
                                 <div className="banner-card-button-edit">
@@ -57,7 +57,7 @@ class PageBanner extends Component {
                             <Card.Img variant="top" src="images/example.jpg" />
                             <Card.ImgOverlay className="banner-ImgOverlay">
                                 <div className="banner-card-edit-text">
-                                <Card.Text className="banner-card-text">Men</Card.Text>
+                                <Card.Text className="banner-card-text">Girls</Card.Text>
                                 <div className="banner-card-border"></div>
                                 </div>
                                 <div className="banner-card-button-edit">
@@ -71,7 +71,7 @@ class PageBanner extends Component {
                             <Card.Img variant="top" src="images/example.jpg" />
                             <Card.ImgOverlay className="banner-ImgOverlay">
                                 <div className="banner-card-edit-text">
-                                <Card.Text className="banner-card-text">Men</Card.Text>
+                                <Card.Text className="banner-card-text">Boys</Card.Text>
                                 <div className="banner-card-border"></div>
                                 </div>
                                 <div className="banner-card-button-edit">

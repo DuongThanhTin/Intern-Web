@@ -72,6 +72,9 @@
 .register-btn{
     margin-top:22px;
 }
+.register-btn a{
+    text-decoration: none;
+}
 .register {
     width: 59px;
     height: 22px;
@@ -84,6 +87,7 @@
     letter-spacing: normal;
     color: var(--greyish-brown);
     text-decoration: none;
+
 }
 
 

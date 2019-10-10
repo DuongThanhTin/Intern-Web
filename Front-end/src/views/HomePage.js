@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import { Router, Route } from 'react-router'
+
+
 
 import './HomePage/HomePage.css'
 import PageHeader from '../components/Page-Element/Element-PageHeader/PageHeader'
@@ -36,8 +39,6 @@ class HomePage extends Component {
               <PageHeader onHandleSignup={this.onHandleSignup}/>             
               <PageBanner/>
               <PageFooter/>
-          
-              
           </div>
       );
   }

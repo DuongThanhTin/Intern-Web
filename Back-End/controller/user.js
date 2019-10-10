@@ -19,47 +19,147 @@ module.exports={
     //Post    
     postSignUp: function(req,res,next){
         const {email, username, password } = req.body;
-        console.log("TCL: {email, username, password }", {email, username, password })
-
+        console.log("TCL Signup: email, username, password", email, username, password)
+    
         UserModel.findOne({
                 username: username         
         })
         /* */
         //Render Signup nếu sai
-        .then(function(user){
-        console.log("TCL: user", user)
-            if(user){
-                console.log('Error Same')
-            }
-            if(req.body.username ==''){
-                console.log('Error Empty')
-            }
-            if(req.body.password.length<6){
-                console.log('Error no long')
-            }
-
-            //Mã hóa password với bcrypt
-            return bcrypt
-                .hash(password,12)
-                .then(function(hashpassword){
-                    const userData = new UserModel({
-                        email:email,
-                        username: username,
-                        password: hashpassword,
-                    });
-                    return userData.save({
-                        alo: console.log('Save Done'),
-                       
+        .then((user)=>{
+            if(!user){
+                //Mã hóa password với bcrypt
+                return bcrypt
+                    .hash(password,12)
+                    .then(function(hashpassword){
+                        const userData = new UserModel({
+                            email:email,
+                            username: username,
+                            password: hashpassword,
+                        });
+                        return userData.save({
+                            result: console.log('Save Done'),   
+                        })
                     })
-                    
+            }
+            else{
+                res.json({
+                    errorUsername: 'Please enter a valid name',
+                    errorEmail: 'Please enter a valid e-mail',
+                    errorPassword: 'Your passwords must be more than 6 characters!', 
                 })
+            }
         })
   
-        .catch(function(err){
+        .catch((err)=>{
             console.log("TCL: err", err)
             res.send('error: '+ err)
         })
     },
 
+    //-------Login---------
+    //Get
+    getLogin:(req,res,next)=>{
+        res.render('index', { title: 'Express' });
+    },
 
+    //Post    
+    postLogin:(req,res,next)=>{
+        const {email,username,password}=req.body
+    
+        const error="Your e-mail/password is invalid!"
+        UserModel.findOne({
+            email: email
+        })
+        .then(function(user){
+            if(!user)
+            {
+              res.json({
+                  error:error,
+              })
+            }
+            else{
+                bcrypt.compare(password,user.password,(err,result)=>{
+                    if(result)
+                    {
+                        res.json({
+                            success: console.log('Success'),
+                            info: console.log("TCL Login: email,username,password", email,username,password)
+                        })
+                   
+                    }
+                    else
+                    {
+                       res.json({
+                           error: error, 
+                       })
+                    }
+                })
+            }
+        })
+    },
+
+    //-------Fogot Password---------
+    //Get
+    getFogotPassword:(req,res,next)=>{
+        res.render('index', { title: 'Express' });
+    },
+
+     //Post
+     postFogotPassword:(req,res,next)=>{
+       
+    },
+
+        //-------Profile---------
+    //Get
+    getProfile:(req,res,next)=>{
+        res.render('index', { title: 'Express' });
+    },
+
+    //Edit Profile
+    getEditProfile:(req,res,next)=>{
+        res.render('index', { title: 'Express' });
+    },
+
+    //Post
+    postEditProfile:(req,res,next)=>{
+        const {email,username}=req.body
+        const userID= req.body._id;
+        UserModel.findById(userID)
+        .then(function(user){
+            if(!user)
+            {
+              res.json({
+                  error:"Fail"
+              })
+            }
+            user.email = email;
+            user.username = username;
+            console.log("TCL: user", user)
+            return user.save();
+          
+            
+        })
+        
+        .then(function(result){
+            console.log("Complete Updated Completed user!");
+            res.json({
+                success:'success'
+            })
+            
+        })
+        .catch(function(err){
+            console.log("TCL: ", err);
+        })
+    },
+
+     //Change Password
+     getChangePassord:(req,res,next)=>{
+        res.render('index', { title: 'Express' });
+    },
+
+    //Post
+    postChangePassord:(req,res,next)=>{
+        
+    },
 }
