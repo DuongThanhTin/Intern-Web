@@ -16,10 +16,12 @@ class PageHeader extends Component {
 
   onHandleSignup= event=>{
     event.preventDefault();
-    console.log('hello')  
+    this.setState({
+      signup:event
+    })
   }
-  onSignupClose = (event)=>{
-    event.preventDefault();
+
+  onSignupClose = ()=>{
     this.setState({
       signup:!this.state.signup
     })
@@ -51,7 +53,7 @@ class PageHeader extends Component {
                   </div>
 
                   <div className="register-btn">
-                    <a className="register" href="/signup"onClick={this.onSignupClose} >Register</a>
+                    <a className="register" href="#" onClick={this.onSignupClose} >Register</a>
                     <button className="button-login">
                       <div className="button-text"><strong>Log In </strong></div>
                     </button>
@@ -125,8 +127,10 @@ class PageHeader extends Component {
                
               </ul>
             </div>
-            <Signup show={this.state.signup}
-              onHide={this.onSignupClose}/>  
+            <Signup show={this.state.signup} 
+              onHide={this.onSignupClose}
+           
+              />  
           </div>
       );
   }

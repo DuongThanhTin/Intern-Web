@@ -32,11 +32,15 @@
     letter-spacing: normal;
     text-align: center;
     color: var(--dark-grey);
-    padding-top:30px;
-    padding-bottom: 35px;
+    padding-top:40px;
+    padding-bottom: 30px;
 }
 
-
+p{
+    font-weight: bold;
+    color: var(--pumpkin-orange);
+    border-bottom: 1px solid var(--pumpkin-orange);
+}
 
 
 
@@ -138,12 +142,13 @@ ul{
     width: 395px;
     height: 46px;
     background-color: var(--white-two);
-    border:none;   
+    border: solid 1px var(--greyish-two);
+
 }
 .signup-form-input-text{
     white-space: nowrap;
     width: 350px;
-    height: 46px;
+    height: 43px;
     background-color: var(--white-two);
     border:none;
     margin-left: 20px;

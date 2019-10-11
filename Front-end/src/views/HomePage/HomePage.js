@@ -38,7 +38,7 @@ class HomePage extends Component {
       return(
           <div className = "HomePage">
               
-              <PageHeader onSignupClose={this.onSignupClose}/> 
+              <PageHeader onSubmitRegister={this.onSubmitRegister}/> 
               <PageBanner/>
               <PageFooter/>
           </div>
