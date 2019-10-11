@@ -20,6 +20,7 @@ router.post('/login',UserController.postLogin)
 
 //Profile
 router.post('/profile/editInfo',UserController.postEditProfile)
+router.post('/profile/changePassword',UserController.postChangePassword)
 router.get('/',UserController.getTest)
 
 //router.get('/account/:_id',UserController.getEditUser)

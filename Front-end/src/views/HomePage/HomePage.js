@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import { Router, Route } from 'react-router'
 
 
 
-import './HomePage/HomePage.css'
-import PageHeader from '../components/Page-Element/Element-PageHeader/PageHeader'
-import PageBanner from '../components/Page-Element/Element-PageBanner/PageBanner';
-import PageFooter from '../components/Page-Element/Element-PageFooter/PageFooter';
-import Signup from '../components/Page-Element/Element-User-Signup/Element-Signup';
+
+import './HomePage.css'
+import PageHeader from '../../components/Element-PageHeader/PageHeader'
+import PageBanner from '../../components/Element-PageBanner/PageBanner';
+import PageFooter from '../../components/Element-PageFooter/PageFooter';
 
 
 
@@ -17,6 +16,7 @@ class HomePage extends Component {
     super(props);
     this.state={
       say:'',
+    
     }
   }
 
@@ -29,14 +29,16 @@ class HomePage extends Component {
     console.log(this.state.say)
   }
 
-  onHandleSignup=()=>{
-    
+  onSignupClose=(event)=>{
+    event.preventDefault();
   }
 
   render(){
+  
       return(
           <div className = "HomePage">
-              <PageHeader onHandleSignup={this.onHandleSignup}/>             
+              
+              <PageHeader onSignupClose={this.onSignupClose}/> 
               <PageBanner/>
               <PageFooter/>
           </div>

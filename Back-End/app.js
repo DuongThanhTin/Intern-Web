@@ -20,6 +20,7 @@ var port= 4000;
   mongoose.connect(
       'mongodb+srv://admin:admin@cluster0-pces2.mongodb.net/test?retryWrites=true&w=majority',
     {
+      useUnifiedTopology: true,
       useNewUrlParser: true,
     }
     

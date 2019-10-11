@@ -24,8 +24,8 @@ module.exports={
         UserModel.findOne({
                 username: username         
         })
+
         /* */
-        //Render Signup nếu sai
         .then((user)=>{
             if(!user){
                 //Mã hóa password với bcrypt
@@ -133,14 +133,13 @@ module.exports={
                   error:"Fail"
               })
             }
-            user.email = email;
-            user.username = username;
-            console.log("TCL: user", user)
-            return user.save();
-          
-            
+            else{
+                user.email = email;
+                user.username = username;
+                console.log("TCL: user", user)
+                return user.save();         
+            }    
         })
-        
         .then(function(result){
             console.log("Complete Updated Completed user!");
             res.json({
@@ -159,7 +158,52 @@ module.exports={
     },
 
     //Post
-    postChangePassord:(req,res,next)=>{
-        
+    postChangePassword:(req,res,next)=>{
+ 
+        const  {password,email, newpassword }=req.body
+        console.log("TCL: password", password)
+        console.log("TCL: newpassword", newpassword)      
+
+        UserModel.findOne({
+            email: email
+        })
+        .then(function(user){
+            if(!user)
+            {
+              res.json({
+                  error:"Fail"
+              })
+            }
+            else{
+                bcrypt.compare(password,user.password,(err,result)=>{
+                console.log("TCL: result", result)
+                    if(result)
+                    {              
+                        return bcrypt
+                        .hash(newpassword,12)
+                        .then((hashpassword)=>{
+                            user.password = hashpassword;
+                            console.log("TCL: newpassword", newpassword)
+                            console.log("TCL: password", password)
+                            res.json({
+                                success: console.log('Success'),
+                            })
+                            return user.save();   
+                        })
+            
+                    }
+                    else
+                    {
+                       res.json({
+                           error: 'error', 
+                       })
+                    }
+                })
+            }
+        })
+
+        .catch(function(err){
+            console.log("TCL: ", err);
+        })
     },
 }
