@@ -20,7 +20,7 @@ class ButtonHeader extends Component {
       return (
         <div className="ButtonHeader">
             <button type="submit" className={classNameButton}>
-                <div className="text">{this.props.Register}</div>
+                <div className="text">{this.props.buttonname}</div>
             </button>
          </div>
       );

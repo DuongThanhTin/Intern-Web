@@ -52,10 +52,11 @@ class Signup extends Component {
       this.setState({
         error: isError
       })
+      console.log(isError)
     });
     console.log("TCL: Signup -> onSubmitRegister -> register", register);
-    console.log("TCL error", this.state.error)
-
+    console.log("TCL error:", this.state.error)
+    
     if(this.state.error){
       this.props.onHide();
     }
@@ -171,7 +172,7 @@ class Signup extends Component {
                 </div>
                 <div className="signup-button">
                   <ButtonHeader
-                    Register={this.state.buttonheadername}
+                    buttonname={this.state.buttonheadername}
                     onHandleChangeColor={this.state.isColorButtonRegister}
                   />
                 </div>

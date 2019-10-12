@@ -36,7 +36,7 @@ class HomePage extends Component {
       return(
           <div className = "HomePage">
               
-              <PageHeader onSubmitRegister={this.onSubmitRegister}/> 
+              <PageHeader onSubmitRegister={this.onSubmitRegister} onSubmitLogin={this.onSubmitLogin}/> 
               <PageBanner/>
               <PageFooter/>
           </div>

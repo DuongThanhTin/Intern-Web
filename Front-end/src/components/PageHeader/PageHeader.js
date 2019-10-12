@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
 import './PageHeader.css'
 import Signup from '../Element-User-Signup/Signup'
+import Login from '../Element-User-Login/Login'
 
 class PageHeader extends Component {
   constructor(){
     super();
     this.state={
       signup: false, 
+      login:false,
     }
   }
 
@@ -14,24 +16,24 @@ class PageHeader extends Component {
     console.log(this.state.signup)
   }
 
-  onHandleSignup= event=>{
-    event.preventDefault();
-    this.setState({
-      signup:event
-    })
-  }
 
-  onHandleSignupClose = ()=>{
+
+  onHandleSignupToogle = ()=>{
     this.setState({
       signup:!this.state.signup
     })
   }
 
-  onImageClick = (event)=>{
+  
+  onHandleLoginToogle = ()=>{
     this.setState({
-      signup:!this.state.signup
+      login:!this.state.login
     })
   }
+
+
+
+
   render(){
     
       return(
@@ -53,9 +55,9 @@ class PageHeader extends Component {
                   </div>
 
                   <div className="register-btn">
-                    <div className="register-text" onClick={this.onHandleSignupClose} >Register</div>
-                    <button className="button-login">
-                      <div className="button-text"><strong>Log In </strong></div>
+                    <div className="register-text" onClick={this.onHandleSignupToogle} >Register</div>
+                    <button className="button-login"  onClick={this.onHandleLoginToogle} >
+                      <div className="button-text" ><strong>Log In </strong></div>
                     </button>
                   </div>
                   </div>
@@ -127,8 +129,14 @@ class PageHeader extends Component {
                
               </ul>
             </div>
-            <Signup show={this.state.signup} 
-              onHide={this.onHandleSignupClose}
+            <Signup
+          show={this.state.signup}
+          onHide={this.onHandleSignupToogle}
+        />
+        <Login
+          show={this.state.login}
+          onHide={this.onHandleLoginToogle}
+        />
            
               />  
           </div>

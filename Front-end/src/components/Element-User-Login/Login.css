@@ -1,0 +1,126 @@
+
+.login{
+    width: 555px;
+    height: 568px;
+    position: relative;
+    box-shadow: 0 14px 30px 0 rgba(0, 0, 0, 0.14);
+    background-color: var(--white);
+}
+
+.login-Modal-main{
+    position: absolute;
+    justify-content: center;
+    width: 555px;
+    height: 568px;
+    box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.03);
+    background-color: var(--white);
+ }
+
+ .login-text{
+    width: auto;
+    height: 42px;
+    position: relative;
+    justify-content: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:47px;
+ }
+
+ .login-text-center-error{
+    width: auto;
+    height: 22px;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.83;
+    letter-spacing: normal;
+    text-align: center;
+    color: var(--strawberry);
+    margin-top:2%;
+ }
+
+
+ .login-text-center{
+    font-family: Montserrat;
+    font-size: 32px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.31;
+    letter-spacing: normal;
+    text-align: center;
+    color: var(--dark-grey);
+    margin-left:50px;
+ }
+
+ .login-form{
+    position: relative;
+    width: 395px;
+    height:420px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top:3%;
+ }
+
+ .edit-center{
+   display: flex;
+   justify-content: space-between;  
+   margin-top:25.53px;
+ }
+
+ .edit-center-left{
+    display: -webkit-inline-box;
+ }
+ .edit-center-left-text{
+    width: auto;
+    height: 22px;
+    font-size: 14px;
+    font-family: Montserrat;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    letter-spacing: normal;
+    color: var(--greyish-brown);
+ }
+ .edit-center-right-text{
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    letter-spacing: normal;
+    text-align: right;
+    color: var(--greyish-brown);
+ }
+
+ .login-button{
+    display: flex;
+    margin-top:12%;
+ }
+
+ .login-Modal-Footer{
+    position: relative;
+    justify-content: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 1em;
+    border-top: .5px solid var(--greyish-two);
+    justify-content: center;
+ }
+
+ .Signup-Modal-Footer-ul{
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    letter-spacing: normal;
+    color: var(--greyish-brown);
+ }

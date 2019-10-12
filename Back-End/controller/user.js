@@ -69,8 +69,6 @@ module.exports={
     //Post    
     postLogin:(req,res,next)=>{
         const {email,username,password}=req.body
-    
-        const error="Your e-mail/password is invalid!"
         UserModel.findOne({
             email: email
         })
@@ -78,7 +76,7 @@ module.exports={
             if(!user)
             {
               res.json({
-                  error:error,
+                  error:false,
               })
             }
             else{
@@ -87,14 +85,15 @@ module.exports={
                     {
                         res.json({
                             success: console.log('Success'),
-                            info: console.log("TCL Login: email,username,password", email,username,password)
+                            info: console.log("TCL Login: email,username,password", email,username,password),
+                            error: true,
                         })
                    
                     }
                     else
                     {
                        res.json({
-                           error: error, 
+                           error: false, 
                        })
                     }
                 })

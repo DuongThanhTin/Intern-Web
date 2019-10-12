@@ -1,0 +1,39 @@
+
+.form-general{
+    width: 395px;
+    height: 72px;
+    margin-top:25px;
+    
+}
+
+
+.form-label{
+    width: auto;
+    font-family: Montserrat;
+    height: 18px;
+    font-size: 12px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: var(--dark-grey);
+}
+
+.form-input{
+    position: relative;
+    width: 395px;
+    height: 46px;
+    background-color: var(--white-two);
+}
+
+.form-input-text{
+    white-space: nowrap;
+    width: 350px;
+    height: 43px;
+    background-color: var(--white-two);
+    border:none;
+    margin-left: 20px;
+    padding:0px;
+    outline: none;
+}
