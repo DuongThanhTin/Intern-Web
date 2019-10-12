@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './PageHeader.css'
-import Signup from '../Element-User-Signup/Element-Signup'
+import Signup from '../Element-User-Signup/Signup'
 
 class PageHeader extends Component {
   constructor(){
@@ -21,7 +21,7 @@ class PageHeader extends Component {
     })
   }
 
-  onSignupClose = ()=>{
+  onHandleSignupClose = ()=>{
     this.setState({
       signup:!this.state.signup
     })
@@ -53,7 +53,7 @@ class PageHeader extends Component {
                   </div>
 
                   <div className="register-btn">
-                    <a className="register" href="#" onClick={this.onSignupClose} >Register</a>
+                    <div className="register-text" onClick={this.onHandleSignupClose} >Register</div>
                     <button className="button-login">
                       <div className="button-text"><strong>Log In </strong></div>
                     </button>
@@ -128,7 +128,7 @@ class PageHeader extends Component {
               </ul>
             </div>
             <Signup show={this.state.signup} 
-              onHide={this.onSignupClose}
+              onHide={this.onHandleSignupClose}
            
               />  
           </div>

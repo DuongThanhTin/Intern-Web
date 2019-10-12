@@ -26,23 +26,23 @@ class PageFooter extends Component {
               </div>
               <div className="Footer-Character">
                 <ul className="Footer-ul">
-                  <li className="">
-                    <a href="/">Home</a>
+                  <li>
+                    <p>Home</p>
                   </li>
-                  <li className="">
-                    <a href="/">Products</a>
+                  <li>
+                    <p>Products</p>
                   </li>
-                  <li className="">
-                    <a href="/">Services</a>
+                  <li>
+                    <p>Services</p>
                   </li>
-                  <li className="">
-                    <a href="/">About Us</a>
+                  <li>
+                    <p>About Us</p>
                   </li>
-                  <li className="">
-                    <a href="/">Help</a>
+                  <li>
+                    <p>Help</p>
                   </li>
-                  <li className="">
-                    <a href="/">Contacts </a>
+                  <li>
+                    <p>Contacts </p>
                   </li>
                 </ul>
               </div>
@@ -54,35 +54,37 @@ class PageFooter extends Component {
             </div>
 
             <div className="Edit-Footer-2">
-              <div className="Footer-Character-2">
-                <ul className="Footer-ul-1">
-                  <li className="">
-                    <a href="/">Home</a>
-                  </li>
-                  <li className="">
-                    <a href="/">Products</a>
-                  </li>
-                  <li className="">
-                    <a href="/">Services</a>
-                  </li>
-                  <li className="">
-                    <a href="/">About Us</a>
-                  </li>
-                  <li className="">
-                    <a href="/">Help</a>
-                  </li>
-                  <li className="">
-                    <a href="/">Contacts </a>
-                  </li>
-                </ul>
+              <div className="Footer-Character-1">
+                <div className="Footer-2">
+                  <ul className="Footer-ul-1">
+                    <li>
+                      <p>Home</p>
+                    </li>
+                    <li>
+                      <p>Products</p>
+                    </li>
+                    <li>
+                      <p>Services</p>
+                    </li>
+                    <li>
+                      <p>About Us</p>
+                    </li>
+                    <li>
+                      <p>Help</p>
+                    </li>
+                    <li>
+                      <p>Contacts </p>
+                    </li>
+                  </ul>
+                </div>
               </div>
               <div className="Footer-Character-2">
                 <ul className="Footer-ul-2">
                   <li className="">
-                    <a href="/">Privacy Policy</a>
+                    <p>Privacy Policy</p>
                   </li>
                   <li className="">
-                    <a href="/">Terms & Conditions</a>
+                    <p>Terms & Conditions</p>
                   </li>
                 </ul>
               </div>

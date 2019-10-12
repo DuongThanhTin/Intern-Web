@@ -71,10 +71,14 @@
 
 .register-btn{
     margin-top:22px;
+    display:flex;
+    font-family: Montserrat;
 }
-.register-btn a{
-    text-decoration: none;
+.register-text{
+    padding: 5px;
+    padding-right: 30px;
 }
+
 .register {
     width: 59px;
     height: 22px;

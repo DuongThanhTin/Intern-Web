@@ -12,7 +12,6 @@
     height: 20px;
     justify-content: space-between;
     padding-top: 40px;
-    
 }
 
 
@@ -29,9 +28,9 @@
 }
 
 
-.Footer-ul li a{
+.Footer-ul li p{
     position: relative;
-    width: 32px;
+    width: auto;
     height: 22px;
     font-family: Montserrat;
     font-size: 14px;
@@ -44,17 +43,27 @@
     margin-right: 15px;
     text-decoration: none;
 }
+.Footer-Character-1{
+    display: flex;
+    padding-top:20px;
+    justify-content: space-between;
+    float: left;
+   
+}
+.Footer-ul-1{
+    padding:0px;
+}
 
 .Footer-ul-1 li{
     display: inline-block; 
-    margin-right: 50px;
-    margin-left: -40px;
+    margin-right: 20px;
+   
 }
 
 
-.Footer-ul-1 li a{
+.Footer-ul-1 li p{
     position: relative;
-    width: 32px;
+    width: auto;
     height: 22px;
     font-family: Montserrat;
     font-size: 12px;
@@ -68,15 +77,16 @@
     text-decoration: none;
 }
 
+
 .Footer-ul-2 li{
     display: inline-block; 
     margin-left: 20px;
     margin-right: -10px;
 }
 
-.Footer-ul-2 li a{
+.Footer-ul-2 li p{
     position: relative;
-    width: 32px;
+    width: auto;
     height: 22px;
     font-family: Montserrat;
     font-size: 12px;
@@ -103,5 +113,6 @@
 }
 
 .Footer-Character-2{
-  padding-top:20px;
+    display: flex;
+    padding-top:20px;
 }

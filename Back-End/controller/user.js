@@ -24,7 +24,6 @@ module.exports={
         UserModel.findOne({
                 username: username         
         })
-
         /* */
         .then((user)=>{
             if(!user){
@@ -37,6 +36,9 @@ module.exports={
                             username: username,
                             password: hashpassword,
                         });
+                        res.json({
+                            error: true,
+                        })
                         return userData.save({
                             result: console.log('Save Done'),   
                         })
@@ -47,6 +49,7 @@ module.exports={
                     errorUsername: 'Please enter a valid name',
                     errorEmail: 'Please enter a valid e-mail',
                     errorPassword: 'Your passwords must be more than 6 characters!', 
+                    error: false,
                 })
             }
         })

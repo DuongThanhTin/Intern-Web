@@ -36,14 +36,11 @@
     padding-bottom: 30px;
 }
 
-p{
+.Signup-Modal-Footer-content li p{
     font-weight: bold;
     color: var(--pumpkin-orange);
     border-bottom: 1px solid var(--pumpkin-orange);
 }
-
-
-
 
 ul{
     list-style-type: none;
@@ -142,9 +139,13 @@ ul{
     width: 395px;
     height: 46px;
     background-color: var(--white-two);
-    border: solid 1px var(--greyish-two);
-
 }
+
+.signup-form-input-border{
+    border: solid 1px var(--greyish-two);
+}
+
+
 .signup-form-input-text{
     white-space: nowrap;
     width: 350px;
@@ -155,6 +156,21 @@ ul{
     padding:0px;
     outline: none;
 }
+
+.condition-password{
+    width: 248px;
+    height: 22px;
+    font-size: 10px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 2.2;
+    letter-spacing: normal;
+    color: #808080;
+    transition:.5s;
+}
+
+
 
 input::-webkit-input-placeholder{
     width: 128px;
@@ -188,6 +204,11 @@ input::-webkit-input-placeholder{
     display: flex;
     text-align: center;
 }
+
+.signup-button-change-color{
+    background-color: var(--pale-orange);
+}
+
 
 
 .Signup-Modal-Footer{
@@ -224,4 +245,24 @@ input::-webkit-input-placeholder{
     color: var(--pumpkin-orange);
     border-bottom: 1px solid var(--pumpkin-orange);
 
+}
+
+
+.signup-error{
+    border: solid 1px var(--strawberry);
+    background-color: rgba(246, 63, 69, 0.04);
+}
+
+.signup-error-condition-text-show{
+    display:none;
+}
+
+.signup-error-text{
+    font-size: 10px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 2.2;
+    letter-spacing: normal;
+    color: var(--strawberry);
 }

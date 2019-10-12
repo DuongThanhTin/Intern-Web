@@ -5,9 +5,9 @@ import axios from 'axios';
 
 
 import './HomePage.css'
-import PageHeader from '../../components/Element-PageHeader/PageHeader'
-import PageBanner from '../../components/Element-PageBanner/PageBanner';
-import PageFooter from '../../components/Element-PageFooter/PageFooter';
+import PageHeader from '../../components/PageHeader/PageHeader'
+import PageBanner from '../../components/PageBanner/PageBanner';
+import PageFooter from '../../components/PageFooter/PageFooter';
 
 
 
@@ -29,9 +29,7 @@ class HomePage extends Component {
     console.log(this.state.say)
   }
 
-  onSignupClose=(event)=>{
-    event.preventDefault();
-  }
+  
 
   render(){
   
