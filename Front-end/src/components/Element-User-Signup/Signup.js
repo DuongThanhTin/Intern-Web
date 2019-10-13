@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button, Modal,  } from 'react-bootstrap';
+import { Modal,  } from 'react-bootstrap';
 import axios from 'axios';
 
 import './Signup.css'
@@ -8,7 +8,7 @@ import ButtonHeader from '../ButtonHeader/ButtonHeader';
 
 let conditiontexterror ="signup-error-condition-text-show";
 let borderinput = "signup-form-input ";
-let conditionpassword = "signup-error-condition-text-show";
+let conditionpassword = "signup-error-condition-text-show ";
 
 class Signup extends Component {
   constructor(props) {
@@ -18,7 +18,7 @@ class Signup extends Component {
       email: "",
       password: "",
       users: [],
-      error: "",
+      error: false,
       closeSignup: false,
       isColorButtonRegister: false,
       buttonheadername: "Register",
@@ -43,7 +43,6 @@ class Signup extends Component {
   };
 
   onSubmitRegister = event => {
-    console.log(event);
     event.preventDefault();
     const register = this.state;
     axios.post("http://localhost:4000/signup", register).then(res => {
@@ -52,18 +51,21 @@ class Signup extends Component {
       this.setState({
         error: isError
       })
-      console.log(isError)
+      console.log("TCL: Signup -> onSubmitRegister -> register", register);
+      console.log("TCL error:", this.state.error)
+      
+      if(this.state.error){
+        this.props.onHide();
+        this.setState({
+          isColorButtonRegister: false
+        });
+      }
     });
-    console.log("TCL: Signup -> onSubmitRegister -> register", register);
-    console.log("TCL error:", this.state.error)
-    
-    if(this.state.error){
-      this.props.onHide();
-    }
-    else{
+
+    if(!this.state.error){
       borderinput = "signup-error";
       conditiontexterror=" signup-error-text";
-      conditionpassword += " signup-error-text";
+      conditionpassword = "signup-error-text";
     }
     
   };
@@ -74,14 +76,13 @@ class Signup extends Component {
 
     if (this.state.isColorButtonRegister) {
       borderinput += " signup-form-input-border";
-      conditionpassword ="condition-password ";
+      conditionpassword=" "
+      conditionpassword +=" condition-password ";
     }
     else{
       borderinput = "signup-form-input ";
       conditionpassword ="signup-error-condition-text-show";
-
     }
-
     return (
       <Modal {...this.props} centered>
         <div className="Signup">

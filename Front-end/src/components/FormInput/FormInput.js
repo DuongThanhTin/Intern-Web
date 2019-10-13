@@ -15,7 +15,7 @@ class FormInput extends Component {
           <div className = "FormInput">
             <div className="form-general">
                   <label className="form-label">{this.props.name}</label>
-                  <div className="form-input">
+                  <div className={this.props.borderInput}>
                     <input
                       name={this.props.inputName}
                       id={this.props.inputId}

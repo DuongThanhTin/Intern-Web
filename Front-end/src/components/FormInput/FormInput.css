@@ -37,3 +37,22 @@
     padding:0px;
     outline: none;
 }
+
+.form-input-border{
+    border: solid 1px var(--greyish-two);
+}
+
+.error{
+    border: solid 1px var(--strawberry);
+    background-color: rgba(246, 63, 69, 0.04);
+}
+
+.error-text{
+    font-size: 12px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 2.2;
+    letter-spacing: normal;
+    color: var(--strawberry);
+}

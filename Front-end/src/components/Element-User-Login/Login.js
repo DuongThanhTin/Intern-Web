@@ -1,10 +1,14 @@
 import React, { Component } from "react";
-import { Button, Modal, Form } from "react-bootstrap";
+import {  Modal } from "react-bootstrap";
 import axios from 'axios';
 
 import "./Login.css";
 import ButtonHeader from "../ButtonHeader/ButtonHeader";
 import FormInput from "../FormInput/FormInput";
+
+
+let borderinput = "form-input ";
+let conditiontexterror="login-error-condition-text-show "
 
 class Login extends Component {
   constructor(props) {
@@ -15,6 +19,7 @@ class Login extends Component {
       password: "",
       iscloseLogin: false,
       isColorButtonLogin: false,
+      error: false,
     };
   }
   onChange = event => {
@@ -34,23 +39,36 @@ class Login extends Component {
     event.preventDefault();
     const login = this.state;
     axios.post("http://localhost:4000/login", login).then(res => {
-      console.log(login.data);
       let isError = res.data.error
       this.setState({
         error: isError
       })
+      console.log("Error", this.state.error)
+      if(this.state.error){
+        this.props.onHide();
+        this.setState({
+          isColorButtonLogin: false
+        });
+      }
     });
 
-    if(this.state.error){
-      console.log("TCL: ", login)
-      this.props.onHide();
+    if(!this.state.error){
+      borderinput = " error";
+      conditiontexterror=" error-text";
     }
-    else{
-    }
+    
     
   };
 
   render() {
+    
+    if (this.state.isColorButtonLogin) {
+      borderinput += " form-input-border";
+    }
+    else{
+      borderinput = "form-input ";
+   //   conditionpassword ="signup-error-condition-text-show";
+    }
     return (
       <Modal {...this.props} centered>
         <div className="login">
@@ -60,11 +78,12 @@ class Login extends Component {
                 className="signup-button-cross"
                 src="images/icon/cross.svg"
                 onClick={this.props.onHide}
+                alt=""
               />
             </div>
             <div className="login-text">
               <div className="login-text-center">Log In</div>
-              <div className="login-text-center-error">
+              <div className={conditiontexterror}>
                 Your e-mail/password is invalid!
               </div>
             </div>
@@ -73,6 +92,7 @@ class Login extends Component {
               <div className="login-form">
                 <div className="login-Modal-content">
                   <FormInput
+                    borderInput={borderinput}
                     name="E-MAIL"
                     inputName="email"
                     inputId="email"
@@ -82,6 +102,7 @@ class Login extends Component {
                     inputPlacehodler="Enter your email..."
                   />
                   <FormInput
+                    borderInput={borderinput}
                     name="PASSWORD"
                     inputName="password"
                     inputId="password"

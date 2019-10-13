@@ -22,7 +22,7 @@ module.exports={
         console.log("TCL Signup: email, username, password", email, username, password)
     
         UserModel.findOne({
-                username: username         
+                email: email         
         })
         /* */
         .then((user)=>{

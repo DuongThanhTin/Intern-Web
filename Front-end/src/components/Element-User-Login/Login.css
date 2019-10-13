@@ -56,6 +56,10 @@
     margin-left:50px;
  }
 
+ .login-error-condition-text-show{
+   display:none;
+}
+
  .login-form{
     position: relative;
     width: 395px;
