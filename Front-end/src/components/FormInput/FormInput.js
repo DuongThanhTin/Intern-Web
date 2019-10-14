@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './FormInput.css'
+import './FormInput.scss'
 
 
 class FormInput extends Component {
@@ -12,7 +12,7 @@ class FormInput extends Component {
 
   render(){
       return(
-          <div className = "FormInput">
+          <div className = "forminput">
             <div className="form-general">
                   <label className="form-label">{this.props.name}</label>
                   <div className={this.props.borderInput}>

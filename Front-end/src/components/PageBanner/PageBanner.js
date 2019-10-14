@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './PageBanner.css'
+import './PageBanner.scss'
 import {Button, CardDeck, Card, } from 'react-bootstrap';
 
 class PageBanner extends Component {
@@ -14,7 +14,7 @@ class PageBanner extends Component {
   render(){
       return (
         <div className="container-header">
-          <div className="PageBanner">
+          <div className="pagebanner">
             <div>
               <div className="banner-image">
                 <div className="banner-text">OUT FIT OF THE WEEK</div>

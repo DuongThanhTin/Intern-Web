@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Modal,  } from 'react-bootstrap';
 import axios from 'axios';
 
-import './Signup.css'
+import './Signup.scss'
 import ButtonHeader from '../ButtonHeader/ButtonHeader';
 
 
@@ -43,6 +43,7 @@ class Signup extends Component {
   };
 
   onSubmitRegister = event => {
+    console.log("Hello", event)
     event.preventDefault();
     const register = this.state;
     axios.post("http://localhost:4000/signup", register).then(res => {
@@ -57,8 +58,13 @@ class Signup extends Component {
       if(this.state.error){
         this.props.onHide();
         this.setState({
-          isColorButtonRegister: false
+          isColorButtonRegister: false,
+          username:'',
+          email:'',
+          password:'',
+        
         });
+        alert('Register Complete!')
       }
     });
 
@@ -85,13 +91,14 @@ class Signup extends Component {
     }
     return (
       <Modal {...this.props} centered>
-        <div className="Signup">
-          <div className="Signup-Modal-main">
+        <div className="signup">
+          <div className="signup-sodal-main">
             <div>
               <img
                 className="signup-button-cross"
                 src="images/icon/cross.svg"
                 onClick={this.props.onHide}
+                alt=""
               />
             </div>
             <div className="signup-register">
@@ -111,6 +118,7 @@ class Signup extends Component {
                       onChange={this.onChange}
                       className="signup-form-input-text  "
                       placeholder="Enter your name..."
+                      
                     />
                    
                   </div>
@@ -154,11 +162,11 @@ class Signup extends Component {
                   </div>
                 </div>
 
-                <div className="Signup-Modal-content">
+                <div className="signup-modal-content">
                   <div>By creating an account you agree to the</div>
                   <div>
                     <div>
-                      <ul className="Signup-Modal-Footer-content">
+                      <ul className="signup-modal-footer-content">
                         <li>
                           <p>Terms of Service&nbsp;</p>
                         </li>
@@ -175,6 +183,7 @@ class Signup extends Component {
                   <ButtonHeader
                     buttonname={this.state.buttonheadername}
                     onHandleChangeColor={this.state.isColorButtonRegister}
+                    onHandleSubmit={this.onSubmitRegister}
                   />
                 </div>
               </div>

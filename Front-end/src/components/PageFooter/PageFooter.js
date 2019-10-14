@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './PageFooter.css'
+import './PageFooter.scss'
 
 class PageFooter extends Component {
   constructor(){
@@ -14,18 +14,18 @@ class PageFooter extends Component {
 
   render(){
       return (
-        <div className="PageFooter ">
+        <div className="pagefooter ">
           <div className="container-header ">
-            <div className="Edit-Footer">
-              <div className="Logo-Footer">
+            <div className="edit-footer">
+              <div className="logo-footer">
                 <img
-                  className="Logo--Footericon"
+                  className="logo-footericon"
                   src="images/icon/logo.png"
                   alt=""
                 />
               </div>
-              <div className="Footer-Character">
-                <ul className="Footer-ul">
+              <div className="footer-character">
+                <ul className="footer-ul">
                   <li>
                     <p>Home</p>
                   </li>
@@ -46,17 +46,17 @@ class PageFooter extends Component {
                   </li>
                 </ul>
               </div>
-              <div className="Footer-Logo-icon">
+              <div className="footer-logo-icon">
                 <img src="images/icon/twitter-icon.svg" alt="" />
                 <img src="images/icon/facebook-icon.svg" alt="" />
                 <img src="images/icon/instagram-6-icon.svg" alt="" />
               </div>
             </div>
 
-            <div className="Edit-Footer-2">
-              <div className="Footer-Character-1">
-                <div className="Footer-2">
-                  <ul className="Footer-ul-1">
+            <div className="edit-footer-2">
+              <div className="footer-wordline-1">
+                <div className="footer-2">
+                  <ul className="footer-ul-1">
                     <li>
                       <p>Home</p>
                     </li>
@@ -78,8 +78,8 @@ class PageFooter extends Component {
                   </ul>
                 </div>
               </div>
-              <div className="Footer-Character-2">
-                <ul className="Footer-ul-2">
+              <div className="footer-wordline-2">
+                <ul className="footer-ul-2">
                   <li className="">
                     <p>Privacy Policy</p>
                   </li>

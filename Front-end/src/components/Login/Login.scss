@@ -7,7 +7,7 @@
     background-color: var(--white);
 }
 
-.login-Modal-main{
+.login-modal-main{
     position: absolute;
     justify-content: center;
     width: 555px;
@@ -26,6 +26,16 @@
     margin-right: auto;
     margin-top:47px;
  }
+ .login-button-cross{
+    position: relative;
+    float: right;
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    background-color: none;
+    margin-right: 3.4%;
+    margin-top: 4.2%;
+}
 
  .login-text-center-error{
     width: auto;
@@ -79,6 +89,9 @@
     display: -webkit-inline-box;
  }
  .edit-center-left-text{
+   display: flex;
+   align-items: center;
+   margin-top:3px;
     width: auto;
     height: 22px;
     font-size: 14px;
@@ -91,6 +104,8 @@
     color: var(--greyish-brown);
  }
  .edit-center-right-text{
+    display: flex;
+    align-items: center;
     font-family: Montserrat;
     font-size: 14px;
     font-weight: 600;
@@ -107,7 +122,7 @@
     margin-top:12%;
  }
 
- .login-Modal-Footer{
+ .login-modal-footer{
     position: relative;
     justify-content: center;
     text-align: center;
@@ -118,7 +133,7 @@
     justify-content: center;
  }
 
- .Signup-Modal-Footer-ul{
+ .signup-modal-footer-ul{
     font-family: Montserrat;
     font-size: 14px;
     font-weight: 500;

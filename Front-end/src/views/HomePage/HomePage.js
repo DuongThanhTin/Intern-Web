@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
-import axios from 'axios';
+//import axios from 'axios';
 
 
 
 
-import './HomePage.css'
-import PageHeader from '../../components/PageHeader/PageHeader'
-import PageBanner from '../../components/PageBanner/PageBanner';
-import PageFooter from '../../components/PageFooter/PageFooter';
+//import './HomePage.css'
+//import PageHeader from '../../components/PageHeader/PageHeader'
+//import PageBanner from '../../components/PageBanner/PageBanner';
+//import PageFooter from '../../components/PageFooter/PageFooter';
 
-
+import ComponentHomepage from '../../components/Homepage/HomePage';
 
 class HomePage extends Component {
   constructor(props){
@@ -22,12 +22,7 @@ class HomePage extends Component {
 
   //Đã lấy được dữ liệu từ server gửi lên
   componentDidMount(){
-    axios.get('http://localhost:4000')
-    .then(result=>this.setState({say:result.data.sayHi}))
-  }
-  onClick=()=>{
-    console.log(this.state.say)
-  }
+   }
 
   
 
@@ -35,10 +30,7 @@ class HomePage extends Component {
   
       return(
           <div className = "HomePage">
-              
-              <PageHeader onSubmitRegister={this.onSubmitRegister} onSubmitLogin={this.onSubmitLogin}/> 
-              <PageBanner/>
-              <PageFooter/>
+            <ComponentHomepage/>
           </div>
       );
   }

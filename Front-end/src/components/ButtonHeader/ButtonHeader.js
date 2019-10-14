@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './ButtonHeader.css'
+import './ButtonHeader.scss'
 
 class ButtonHeader extends Component {
   constructor(){
@@ -18,8 +18,8 @@ class ButtonHeader extends Component {
           classNameButton+=' button-change-color';
       }
       return (
-        <div className="ButtonHeader">
-            <button type="submit" className={classNameButton}>
+        <div className="buttonheader">
+            <button type="submit" className={classNameButton} >
                 <div className="text">{this.props.buttonname}</div>
             </button>
          </div>

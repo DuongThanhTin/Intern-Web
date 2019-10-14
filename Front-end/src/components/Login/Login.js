@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import {  Modal } from "react-bootstrap";
 import axios from 'axios';
 
-import "./Login.css";
+import "./Login.scss";
 import ButtonHeader from "../ButtonHeader/ButtonHeader";
 import FormInput from "../FormInput/FormInput";
 
@@ -22,7 +22,7 @@ class Login extends Component {
       error: false,
     };
   }
-  onChange = event => {
+  onChangeInputValue = event => {
     this.setState({
       [event.target.name]: event.target.value,
       isColorButtonLogin: true
@@ -34,8 +34,8 @@ class Login extends Component {
     }
   };
 
-  onSubmitLogin = event => {
-    console.log(event);
+  handleLogin = event => {
+    console.log("Hello ", event);
     event.preventDefault();
     const login = this.state;
     axios.post("http://localhost:4000/login", login).then(res => {
@@ -47,7 +47,10 @@ class Login extends Component {
       if(this.state.error){
         this.props.onHide();
         this.setState({
-          isColorButtonLogin: false
+          isColorButtonLogin: false,
+          username:'',
+          email:'',
+          password:'',
         });
       }
     });
@@ -72,10 +75,10 @@ class Login extends Component {
     return (
       <Modal {...this.props} centered>
         <div className="login">
-          <div className="login-Modal-main">
+          <div className="login-modal-main">
             <div>
               <img
-                className="signup-button-cross"
+                className="login-button-cross"
                 src="images/icon/cross.svg"
                 onClick={this.props.onHide}
                 alt=""
@@ -98,7 +101,7 @@ class Login extends Component {
                     inputId="email"
                     inputType="email"
                     inputValue={this.state.email}
-                    inputOnChange={this.onChange}
+                    inputOnChange={this.onChangeInputValue}
                     inputPlacehodler="Enter your email..."
                   />
                   <FormInput
@@ -108,7 +111,7 @@ class Login extends Component {
                     inputId="password"
                     inputType="password"
                     inputValue={this.state.password}
-                    inputOnChange={this.onChange}
+                    inputOnChange={this.onChangeInputValue}
                     inputPlacehodler="Enter your password..."
                   />
                 </div>
@@ -116,7 +119,7 @@ class Login extends Component {
                 <div className="edit-center">
                   <div className="edit-center-left">
                     <img
-                      className="Logo-icon"
+                      className="logo-icon-check"
                       src="images/icon/check-box.svg"
                       alt=""
                     />
@@ -138,9 +141,9 @@ class Login extends Component {
                 </div>
               </div>
             </form>
-            <div className="login-Modal-Footer">
-              <div className="Signup-Modal-Footer-content">
-                <ul className="Signup-Modal-Footer-ul">
+            <div className="login-modal-footer">
+              <div className="signup-modal-footer-content">
+                <ul className="fignup-modal-footer-ul">
                   <li>Do you have account?&nbsp;</li>
                   <li>
                     <p>Register</p>

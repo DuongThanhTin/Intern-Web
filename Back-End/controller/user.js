@@ -3,7 +3,6 @@ const bcrypt = require('bcryptjs')
 const UserModel = require('../models/user')
 
 
-
 module.exports={
     
     getTest:(req,res,next)=>{
@@ -22,11 +21,27 @@ module.exports={
         console.log("TCL Signup: email, username, password", email, username, password)
     
         UserModel.findOne({
-                email: email         
+            email: email         
         })
         /* */
-        .then((user)=>{
-            if(!user){
+        .then((user)=>{     
+            if(email==''||username==''||password==''){
+                res.json({
+                    errorUsername: 'Please enter a valid name',
+                    errorEmail: 'Please enter a valid e-mail',
+                    errorPassword: 'Your passwords must be more than 6 characters!', 
+                    error: false,
+                })
+            }
+            else if(user){
+                res.json({
+                    errorUsername: 'Please enter a valid name',
+                    errorEmail: 'Please enter a valid e-mail',
+                    errorPassword: 'Your passwords must be more than 6 characters!', 
+                    error: false,
+                })
+            }
+            else if(!user){
                 //Mã hóa password với bcrypt
                 return bcrypt
                     .hash(password,12)
@@ -43,14 +58,6 @@ module.exports={
                             result: console.log('Save Done'),   
                         })
                     })
-            }
-            else{
-                res.json({
-                    errorUsername: 'Please enter a valid name',
-                    errorEmail: 'Please enter a valid e-mail',
-                    errorPassword: 'Your passwords must be more than 6 characters!', 
-                    error: false,
-                })
             }
         })
   
@@ -73,13 +80,22 @@ module.exports={
             email: email
         })
         .then(function(user){
-            if(!user)
+            if(email==''||password==''){
+                res.json({
+                    errorUsername: 'Please enter a valid name',
+                    errorEmail: 'Please enter a valid e-mail',
+                    errorPassword: 'Your passwords must be more than 6 characters!', 
+                    error: false,
+                })
+            }
+            else if(!user)
             {
               res.json({
                   error:false,
               })
             }
-            else{
+            
+            else if(user){
                 bcrypt.compare(password,user.password,(err,result)=>{
                     if(result)
                     {

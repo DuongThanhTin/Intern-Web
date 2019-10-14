@@ -1,0 +1,100 @@
+.pagefooter{
+    width: 100%;
+    height: 185px;
+    box-shadow:  0 -1px 4px 0 rgba(0, 0, 0, 0.08);
+    background-color: var(--white);
+    position: absolute;
+    bottom: 0px;
+}
+
+@mixin p($font-size){
+    position: relative;
+    width: auto;
+    height: 22px;
+    font-family: Montserrat;
+    font-size: $font-size;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    letter-spacing: normal;
+    color: var(--greyish-two);
+    margin-right: 15px;
+    text-decoration: none;
+}
+
+
+@mixin footer-wordline{
+    display: flex;
+    padding-top:20px;
+    justify-content: space-between;
+}
+
+
+.edit-footer{
+    display: flex;
+    height: 20px;
+    justify-content: space-between;
+    padding-top: 40px;
+}
+    
+
+.footer-ul{
+    list-style-type: none;
+    display: inline-block;
+    width:615px;
+    margin-left:15%;
+    li{
+        display: inline-block; 
+        margin-right: 20px;
+        p{
+            @include p(14px);
+        }
+    }
+}
+
+.footer-wordline-1{
+    @include footer-wordline();
+    float: left;
+   
+}
+.footer-ul-1{
+    padding:0px;
+    li{
+        display: inline-block; 
+        margin-right: 20px;
+        p{
+            @include p(12px);
+        }
+    }
+}
+
+.footer-ul-2{
+    li{
+        display: inline-block; 
+        margin-left: 20px;
+        margin-right: -10px;
+        p{
+            @include p(12px);
+        }
+        
+    }
+}
+.footer-logo-icon{
+    img{
+        margin-left: 10px;
+    }
+} 
+
+.edit-footer-2{
+    display: flex;
+    height: 20px;
+    justify-content: space-between;
+    padding-top: 70px;
+    border-bottom: .1px solid #cccccc;
+}
+
+.footer-wordline-2{
+    display: flex;
+    padding-top:20px;
+}
