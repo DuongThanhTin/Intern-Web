@@ -7,6 +7,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   --white: #ffffff;
   --white-two: #f6f6f6;
+  --white-three:#ededed;
+  --greyish: #acacac;
   --greyish-two: #b7b7b7;
   --greyish-brown: #4d4d4d;
   --pale-orange: #ffa15f;
@@ -16,6 +18,7 @@ body {
   font-family: Montserrat;
   --white-four:#d4d3d3;
   --strawberry:#f63f45;
+  --charcoal-grey: #3d3d3f;
 }
 
 code {

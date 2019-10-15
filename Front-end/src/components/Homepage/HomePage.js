@@ -19,6 +19,7 @@ class HomePage extends Component {
 
   //Đã lấy được dữ liệu từ server gửi lên
   componentDidMount(){
+      console.log(process.env.BASE_URL)
   }
 
   

@@ -45,6 +45,7 @@
     margin-right: 73.6px;
     margin-top: 270px;
     border-radius: 0px;
+    
 }
 
 .banner-button-text-1{
@@ -117,6 +118,10 @@
     border-radius: 0px;
     display: flex;
     justify-content: center;
+    &:focus, &:active{
+        outline:none ;
+        box-shadow: none;
+    }
 }
 
 .banner-card-button-text{

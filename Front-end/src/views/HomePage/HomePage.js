@@ -1,37 +1,36 @@
 import React, {Component} from 'react';
 //import axios from 'axios';
-
-
-
-
-//import './HomePage.css'
-//import PageHeader from '../../components/PageHeader/PageHeader'
-//import PageBanner from '../../components/PageBanner/PageBanner';
-//import PageFooter from '../../components/PageFooter/PageFooter';
+import {
+  BrowserRouter,
+  Route,
+} from 'react-router-dom';
 
 import ComponentHomepage from '../../components/Homepage/HomePage';
+import ScreensAddProduct from '../../components/Product/ScreensAddProduct/ScreensAddProduct';
+import Photo from '../../components/Product/ScreensAddProduct/AddProduct/AddPhoto/AddPhoto';
+import Input from '../../components/Product/ScreensAddProduct/FormOptionInputProduct/FormOptionInputProduct';
 
 class HomePage extends Component {
   constructor(props){
     super(props);
     this.state={
-      say:'',
     
     }
   }
 
   //Đã lấy được dữ liệu từ server gửi lên
   componentDidMount(){
+    
    }
 
-  
 
   render(){
-  
-      return(
-          <div className = "HomePage">
-            <ComponentHomepage/>
+      return (
+        <BrowserRouter>
+          <div>
+            <Route exact path="/" component={ComponentHomepage} />
           </div>
+        </BrowserRouter>
       );
   }
 };

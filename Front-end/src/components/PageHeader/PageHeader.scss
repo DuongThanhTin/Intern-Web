@@ -73,6 +73,9 @@
 .register-text{
     padding: 5px;
     padding-right: 30px;
+    &:hover{
+        cursor: pointer;
+    }
 }
 
 .register {
@@ -98,6 +101,10 @@
     border: solid 1px var(--pale-orange);
     background-color: var(--white);
     outline:none;  
+    &:focus, &:active{
+        outline:none ;
+        box-shadow: none;
+    }
 }
 .button-text{
     font-family: Montserrat;
