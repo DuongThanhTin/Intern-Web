@@ -3,7 +3,7 @@ import { Modal,  } from 'react-bootstrap';
 import axios from 'axios';
 
 import './Signup.scss'
-import ButtonHeader from '../ButtonHeader/ButtonHeader';
+import ButtonHeader from '../UI/ButtonHeader/ButtonHeader';
 
 
 let conditiontexterror ="signup-error-condition-text-show";

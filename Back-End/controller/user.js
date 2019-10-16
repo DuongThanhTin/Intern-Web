@@ -1,19 +1,13 @@
 const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs')
 const UserModel = require('../models/user')
+const jwt = require('jsonwebtoken')
 
 
 module.exports={
     
-    getTest:(req,res,next)=>{
-       res.json({sayHi:'Hello from server'})
-    },
 
     //-------Sign Up---------
-    //Get
-    getSignUp: function(req,res,next){
-        res.render('index', { title: 'Express' });
-    },
 
     //Post    
     postSignUp: function(req,res,next){
@@ -23,9 +17,8 @@ module.exports={
         UserModel.findOne({
             email: email         
         })
-        /* */
         .then((user)=>{     
-            if(email==''||username==''||password==''){
+            if(email==''||username==''||password==''||password.lenght<6){
                 res.json({
                     errorUsername: 'Please enter a valid name',
                     errorEmail: 'Please enter a valid e-mail',
@@ -35,9 +28,6 @@ module.exports={
             }
             else if(user){
                 res.json({
-                    errorUsername: 'Please enter a valid name',
-                    errorEmail: 'Please enter a valid e-mail',
-                    errorPassword: 'Your passwords must be more than 6 characters!', 
                     error: false,
                 })
             }
@@ -51,12 +41,13 @@ module.exports={
                             username: username,
                             password: hashpassword,
                         });
-                        res.json({
-                            error: true,
-                        })
+                        
                         return userData.save({
                             result: console.log('Save Done'),   
                         })
+                    })
+                    .then(result=>{
+                        res.status(201).json({message:"User created!",userID:result._id,error:true})
                     })
             }
         })
@@ -68,27 +59,17 @@ module.exports={
     },
 
     //-------Login---------
-    //Get
-    getLogin:(req,res,next)=>{
-        res.render('index', { title: 'Express' });
-    },
+    
 
     //Post    
     postLogin:(req,res,next)=>{
         const {email,username,password}=req.body
+        let loadUser
         UserModel.findOne({
             email: email
         })
         .then(function(user){
-            if(email==''||password==''){
-                res.json({
-                    errorUsername: 'Please enter a valid name',
-                    errorEmail: 'Please enter a valid e-mail',
-                    errorPassword: 'Your passwords must be more than 6 characters!', 
-                    error: false,
-                })
-            }
-            else if(!user)
+            if(!user)
             {
               res.json({
                   error:false,
@@ -96,13 +77,23 @@ module.exports={
             }
             
             else if(user){
+                loadUser = user
                 bcrypt.compare(password,user.password,(err,result)=>{
                     if(result)
                     {
+                        const token = jwt.sign(
+                            {
+                                email: loadUser.mail,
+                                userID: user._id,
+                            },
+                            'dsvsecret',
+                        );
+                        console.log('id', user_id);
+                        
                         res.json({
-                            success: console.log('Success'),
-                            info: console.log("TCL Login: email,username,password", email,username,password),
-                            error: true,
+                            token: token,
+                            userID: user._id,
+                            error:true,
                         })
                    
                     }

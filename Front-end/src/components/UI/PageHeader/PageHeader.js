@@ -1,34 +1,87 @@
 import React, { Component } from "react";
 import "./PageHeader.scss";
-import Signup from "../Signup/Signup";
-import Login from "../Login/Login";
+import Signup from "../../Signup/Signup";
+import Login from "../../Login/Login";
 
 class PageHeader extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       signup: false,
-      login: false
+      login: false,
+      isAuth: false,
+      token: null,
+      userID: '',
     };
   }
 
   componentDidMount() {
-    console.log(this.state.signup);
+    const token = localStorage.getItem("token");
+    const userID = localStorage.getItem('userID');
+    if(!token){
+      return;
+    }
+    else{
+      this.setState({ isAuth:true, token: token, userID: userID });
+    }
+  
   }
 
-  onHandleSignupToogle = () => {
+  HandleSignupToogle = () => {
     this.setState({
       signup: !this.state.signup
     });
   };
 
-  onHandleLoginToogle = () => {
+  HandleLoginToogle = () => {
     this.setState({
       login: !this.state.login
     });
   };
+  
+  HandleLoginAuth =()=> {
+    this.setState({
+      isAuth: true,
+    });
+ 
+  };
+
+  HandleLogout=()=>{
+    this.setState({ isAuth: false, token: null });
+    console.log(this.state.isAuth)  
+    localStorage.removeItem('token');
+    localStorage.removeItem('userID');
+  }
 
   render() {
+    let routes = (
+      <div className="register-btn">
+        <div className="register-text" onClick={this.HandleSignupToogle}>
+          Register
+        </div>
+        <button className="button-login" onClick={this.HandleLoginToogle}>
+          <div className="button-text">
+            <strong>Log In </strong>
+          </div>
+        </button>
+
+        <div className="">
+          <img className="logo-icon" src="images/icon/cart.svg" alt="" />
+        </div>
+      </div>
+    );
+
+    if (this.state.isAuth) {
+      routes = (
+        <div className="register-btn">
+          <button className="avatar" onClick={this.HandleLogout} />
+          <div className="">
+            <img className="logo-icon" src="images/icon/cart.svg" alt="" />
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div className="pageHeader">
         <div className="header-1">
@@ -54,26 +107,7 @@ class PageHeader extends Component {
                 <img className="" src="images/icon/logo.png" alt="" />
               </div>
 
-              <div className="register-btn">
-                <div
-                  className="register-text"
-                  onClick={this.onHandleSignupToogle}
-                >
-                  Register
-                </div>
-                <button
-                  className="button-login"
-                  onClick={this.onHandleLoginToogle}
-                >
-                  <div className="button-text">
-                    <strong>Log In </strong>
-                  </div>
-                </button>
-
-                <div className="">
-                <img className="logo-icon" src="images/icon/cart.svg" alt=""/>
-                </div>
-              </div>
+              {routes}
             </div>
           </div>
         </div>
@@ -213,9 +247,12 @@ class PageHeader extends Component {
             </li>
           </ul>
         </div>
-        <Signup show={this.state.signup} onHide={this.onHandleSignupToogle} />
-        <Login show={this.state.login} onHide={this.onHandleLoginToogle} />
-        
+        <Signup
+          show={this.state.signup}
+          onHide={this.HandleSignupToogle}
+          
+        />
+        <Login show={this.state.login} onHide={this.HandleLoginToogle} HandleLoginHeader={this.HandleLoginAuth} />
       </div>
     );
   }

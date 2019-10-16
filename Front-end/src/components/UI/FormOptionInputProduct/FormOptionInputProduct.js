@@ -31,3 +31,4 @@ class FormOptionInputProduct extends Component {
 
 
 export default FormOptionInputProduct;
+

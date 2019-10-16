@@ -3,8 +3,8 @@ import {  Modal } from "react-bootstrap";
 import axios from 'axios';
 
 import "./Login.scss";
-import ButtonHeader from "../ButtonHeader/ButtonHeader";
-import FormInput from "../FormInput/FormInput";
+import ButtonHeader from "../UI/ButtonHeader/ButtonHeader";
+import FormInput from "../UI/FormInput/FormInput";
 
 
 let borderinput = "form-input ";
@@ -17,11 +17,15 @@ class Login extends Component {
       buttonheadername: "Login",
       email: "",
       password: "",
-      iscloseLogin: false,
+      isAuth: false,
       isColorButtonLogin: false,
       error: false,
+      token: null,
+      userID: null,
     };
   }
+  
+
   onChangeInputValue = event => {
     this.setState({
       [event.target.name]: event.target.value,
@@ -34,8 +38,8 @@ class Login extends Component {
     }
   };
 
+
   handleLogin = event => {
-    console.log("Hello ", event);
     event.preventDefault();
     const login = this.state;
     axios.post("http://localhost:4000/login", login).then(res => {
@@ -51,7 +55,13 @@ class Login extends Component {
           username:'',
           email:'',
           password:'',
-        });
+          token: res.data.token,
+          userID: res.data._id,
+          isAuth: true,
+        })
+        localStorage.setItem('token', res.data.token);
+        localStorage.setItem('userID', res.data._id);
+        this.props.HandleLoginHeader(true);
       }
     });
 
@@ -91,7 +101,7 @@ class Login extends Component {
               </div>
             </div>
 
-            <form onSubmit={this.onSubmitLogin}>
+            <form onSubmit={this.handleLogin}>
               <div className="login-form">
                 <div className="login-Modal-content">
                   <FormInput
@@ -134,9 +144,10 @@ class Login extends Component {
 
                 <div className="login-button">
                   <ButtonHeader
+                    
                     buttonname={this.state.buttonheadername}
                     onHandleChangeColor={this.state.isColorButtonLogin}
-                    onHandleSubmit={this.onSubmitLogin}
+               
                   />
                 </div>
               </div>

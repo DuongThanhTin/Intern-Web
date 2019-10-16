@@ -2,10 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import HomePage from './views/HomePage/HomePage'
+import App from './App'
+import { BrowserRouter } from 'react-router-dom';
 
-ReactDOM.render(<HomePage />, document.getElementById('HomePage'));
-
+ReactDOM.render(
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>,
+    document.getElementById('HomePage')
+  );
 
 
 

@@ -1,7 +1,7 @@
 .formoptioninputproduct{
     display: flex;
+
       .formoptioninputproduct-text{
-           
         font-family: Montserrat;
         font-size: 14px;
         font-weight: 500;
@@ -14,8 +14,10 @@
         }
   
       .input {
-          width: 780px;    
+          width: 780px;  
+          height: 48px;  
           border:none;
           background-color: var(--white);
+
         }
   }

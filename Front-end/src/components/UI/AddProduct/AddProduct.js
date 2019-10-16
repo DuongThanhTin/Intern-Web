@@ -2,17 +2,11 @@ import React, { Component } from "react";
 import { CardDeck, Card } from "react-bootstrap";
 
 import "./AddProduct.scss";
-import AddPhoto from "./AddPhoto/AddPhoto";
+import AddPhoto from "../AddPhoto/AddPhoto";
 import FormInputProduct from "../FormInputProduct/FormInputProduct";
 import FormOptionInputProduct from "../FormOptionInputProduct/FormOptionInputProduct";
 
 class AddProduct extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  componentDidMount() {}
 
   render() {
     return (
@@ -37,10 +31,28 @@ class AddProduct extends Component {
             />
           </div>
         </div>
+        <div className="addproduct-label">
+          <div>
+            <div  className="addproduct-label-photo">
+              <div className="addproduct-label-photo-text">Photos</div>
+            </div>
+            <div className="addproduct-label-input">
+              <ul>
+              <li>Name</li>
+              <li>Categories</li>
+              <li>Brand</li>
+              <li>Price ($)</li>
+              <li>Size</li>
+              <li>Colors</li>
+              <li>Quantity</li>
+              <li>Description</li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
         <div className="addproduct-main">
           <div className="addproduct-photo ">
-            <div className="addproduct-photo-text">Photos</div>
             <AddPhoto />
             <AddPhoto />
             <AddPhoto />
@@ -50,38 +62,30 @@ class AddProduct extends Component {
             You can add up to 8 photos. The 1st photo will be set as cover (main
             photo)
           </div>
-          <FormInputProduct />
+
           <div className="addproduct-distance-input">
-            <div className="addproduct-photo-text-name">Name</div>
-            
+            <FormInputProduct />
           </div>
-          <FormOptionInputProduct />
+
           <div className="addproduct-distance-input">
-            <div className="addproduct-photo-text-category">Category</div>
             <FormOptionInputProduct />
           </div>
           <div className="addproduct-distance-input">
-            <div className="addproduct-photo-text-brand">Brand</div>
-          </div>
-          <div className="addproduct-distance-input">
-          <FormInputProduct />
-            <div className="addproduct-photo-text-price">Price($)</div>
-            
-          </div>
-          <div className="addproduct-distance-input">
-            <div className="addproduct-photo-text-size">Size</div>
             <FormOptionInputProduct />
           </div>
           <div className="addproduct-distance-input">
-            <div className="addproduct-photo-text-colors">colors</div>
-            <FormOptionInputProduct />
-          </div>
-          <div className="addproduct-distance-input">
-            <div className="addproduct-photo-text-quantity">quantity</div>
             <FormInputProduct />
           </div>
           <div className="addproduct-distance-input">
-            <div className="addproduct-photo-text-desciption">desicription</div>
+            <FormOptionInputProduct />
+          </div>
+          <div className="addproduct-distance-input">
+            <FormOptionInputProduct />
+          </div>
+          <div className="addproduct-distance-input">
+            <FormInputProduct />
+          </div>
+          <div className="addproduct-distance-input">
             <FormOptionInputProduct />
           </div>
         </div>

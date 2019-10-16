@@ -35,7 +35,21 @@
         letter-spacing: normal;
         text-align: right;
         color: var(--dark-grey);
-      
+}
+
+@mixin addproduct-label-input{
+    text-transform: uppercase;
+    width: auto;
+    height: 14px;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.17;
+    letter-spacing: normal;
+    text-align: right;
+    color: var(--dark-grey);
 }
 
 .addproduct-header{
@@ -90,6 +104,31 @@
     color: var(--greyish);
     padding-top:1em;
     padding-bottom: 4em;
+}
+
+.addproduct-label{
+    width: 186px;
+    display: flex;
+    flex-direction: column;
+    float: left;
+    height: 80%;
+    justify-content: space-around;
+    .addproduct-label-photo{
+  
+        text-align: right;
+    }
+    .addproduct-label-photo-text{
+        @include  addproduct-label-input;
+    }
+    ul{
+        display: flex;
+        flex-direction: column;
+        text-align: right;
+        justify-content: space-between;
+        li{
+            @include  addproduct-label-input;
+        }
+    }
 }
 
 .addproduct-distance-input{

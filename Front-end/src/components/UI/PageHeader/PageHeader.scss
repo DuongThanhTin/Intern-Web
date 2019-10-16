@@ -116,10 +116,28 @@
     height: 20px;
     justify-content: space-between;
 }
+.avatar{
+    width: 32px;
+    height: 32px;
+    opacity: 0.8;
+    border-color: var(--pale-orange);
+    background-image: url("/images/example.jpg");
+    border-radius: 50px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    padding:0px;
+    &:focus, &:active{
+        outline:none ;
+        box-shadow: none;
+    }
+}
+
 
 .logo{
+    width:100%;
     margin-top:20px;
-    margin-left:23%;
+    margin-left:50%;
 }
 .logo-icon{
     margin-top:5px;
@@ -142,6 +160,7 @@
     display: flex;
     justify-content: center;
     padding:0px;
+    margin-left: 85px;
     li{
         display: inline-block; 
         padding:10px;

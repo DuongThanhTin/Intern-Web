@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
-import AddProduct from './AddProduct/AddProduct'
-import Menu from '../Menu/Menu'
+import AddProduct from '../../../components/UI/AddProduct/AddProduct'
+import Menu from '../../../components/UI/Menu/Menu'
 import './ScreensAddProduct.scss'
 
 
@@ -25,7 +25,6 @@ class ScreensAddProduct extends Component {
   }
 };
 
-
-
+ document.getElementById('product');
 
 export default ScreensAddProduct;
