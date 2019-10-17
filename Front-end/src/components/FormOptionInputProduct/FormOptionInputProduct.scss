@@ -1,0 +1,33 @@
+.formoptioninputproduct{
+    display: flex;
+
+      .formoptioninputproduct-text{
+        font-family: Montserrat;
+        font-size: 14px;
+        font-weight: 500;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.43;
+        letter-spacing: normal;
+        color: var(--charcoal-grey);
+        padding-left:20px;
+        }
+  
+      .input {
+          width: 780px;  
+          height: 48px;  
+          border:none;
+          background-color: var(--white);
+
+        }
+      .css-1hwfws3{
+        height: 48px;
+        
+      }
+      .css-yk16xz-control{
+        border-color: white;
+      }
+      .css-1okebmr-indicatorSeparator{
+        background-color: white;  
+      }
+  }

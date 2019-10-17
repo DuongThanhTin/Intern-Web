@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 //import axios from 'axios';
 
 import './HomePage.scss'
-import PageHeader from '../../components/UI/PageHeader/PageHeader'
-import PageBanner from '../../components/UI/PageBanner/PageBanner';
-import PageFooter from '../../components/UI/PageFooter/PageFooter';
+import PageHeader from '../../components/PageHeader/PageHeader'
+import PageBanner from '../../components/PageBanner/PageBanner';
+import PageFooter from '../../components/PageFooter/PageFooter';
 
 
 

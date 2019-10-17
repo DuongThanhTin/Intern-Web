@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 
 import Homepage from "./views/Homepage/HomePage";
-import AddProduct from "./views/product/ScreensAddProduct/ScreensAddProduct";
+import AddProduct from "./views/AddProductPage/AddProductPage";
 
 class App extends Component {
   constructor() {

@@ -1,0 +1,40 @@
+.addphoto {
+    width: 180px;
+    height: 270px;
+    border: solid 1px var(--white-three);
+    background-color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    cursor: pointer;
+    &:hover{
+        background-color: var(--white)
+    }
+}
+.addphoto-edit{
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-content: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    img{
+        display: flex;
+        align-content: center;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+}
+
+.addphoto-text {
+    width: 180px;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.83;
+    letter-spacing: normal;
+    color: var(--greyish);
+    
+    
+}

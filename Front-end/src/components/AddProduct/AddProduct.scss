@@ -1,0 +1,225 @@
+.addproduct{
+    position: inherit;
+    width: 100%;
+    
+    
+}
+
+@mixin text-header($width,$height,$font-size,$font-weight,$line-height,$color){
+    width: $width;
+    height: $height;
+    font-family: Montserrat;
+    font-size: $font-size;
+    font-weight: $font-weight;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: $line-height;
+    letter-spacing: normal;
+    color: $color;
+}
+
+@mixin label-text-input($top){
+    
+    position: absolute;
+    text-transform: uppercase;
+    top:$top;
+        width: 39px;
+        height: 14px;
+        font-family: Montserrat;
+        font-size: 12px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.17;
+        letter-spacing: normal;
+        text-align: right;
+        color: var(--dark-grey);
+}
+
+@mixin addproduct-label-input{
+    text-transform: uppercase;
+    width: auto;
+    height: 14px;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.17;
+    letter-spacing: normal;
+    text-align: right;
+    color: var(--dark-grey);
+}
+
+.addproduct-header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-top:2%;
+    padding-left:2%;
+}
+
+.addproduct-header-text-up {
+    @include text-header(186px,36px,28px,bold,1.29,var(--dark-grey))
+}
+
+.addproduct-header-text-down {
+    @include text-header(175px,20px,14px,500,1.43,var(--dark-grey))
+}
+
+.addproduct-header-right-icon{
+    padding-right:30px;
+    cursor: pointer;
+}
+
+.addproduct-main{
+    width: 780px;
+    padding-top:50px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.addproduct-photo{
+    display: flex;
+    justify-content: space-between;
+    width: 780px;
+    
+}
+.addproduct-photo-text{
+    @include label-text-input(20.2%);
+}
+.addproduct-photo-element{
+    width: 180px;
+    height: 270px;
+}
+
+.condition-text{
+    width: 532px;
+    height: 20px;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    color: var(--greyish);
+    padding-top:1em;
+    padding-bottom: 4em;
+}
+
+
+.addproduct-label{
+    width: 186px;
+    display: flex;
+    flex-direction: column;
+    float: left;
+    height: 70%;
+    top:14.5%;
+    margin-left:2%;
+    position: relative;
+    .addproduct-label-general{
+        height:80%;
+
+    }
+    .addproduct-label-photo{
+        top: 20%;
+        text-align: right;
+    }
+    .addproduct-label-photo-text{
+        @include  addproduct-label-input;
+    }
+    .addproduct-label-input{
+        height: 500px;
+        position: relative;
+        top:33%;
+    }
+    ul{
+        height:525px;
+        display: flex;
+        flex-direction: column;
+        text-align: right;
+        justify-content: space-between;
+        li{
+            @include  addproduct-label-input;
+        }
+    }
+}
+
+.addproduct-distance-input{
+    padding-top:25px;
+}
+
+.addproduct-photo-text-name{
+    @include label-text-input(38%);
+}
+
+
+.addproduct-button{
+    display: flex;
+    float: right;
+    padding-top:2em;
+}
+
+
+.button-cancel{
+    margin-right: 20px;
+    border-radius: 2px;
+    border: solid 1px var(--white-three);
+    background-color: var(--white);
+    &:focus, &:active{
+        outline:none ;
+        box-shadow: none;
+    }
+}
+.button-submit{
+    border-radius: 2px;
+    background-color: var(--pale-orange);
+    &:focus, &:active{
+        outline:none ;
+        box-shadow: none;
+    }
+}
+
+
+.button-text-cancel{
+    width: auto;
+  height: 24px;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  text-align: center;
+  line-height: 1.71;
+  letter-spacing: normal;
+  color: var(--pale-orange);
+  margin-left: auto;
+  margin-right: auto;
+  
+ 
+}
+
+.button-text-complete{
+    width: auto;
+  height: 24px;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  text-align: center;
+  line-height: 1.71;
+  letter-spacing: normal;
+  color: var(--white);
+  margin-left: auto;
+  margin-right: auto;
+ 
+}
+
+.button{
+    padding-right: 1em;
+}
+
+
+
+
