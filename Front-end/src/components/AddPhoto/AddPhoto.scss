@@ -17,12 +17,43 @@
     align-content: center;
     margin-top: auto;
     margin-bottom: auto;
-    img{
+    .addphoto-image{
         display: flex;
         align-content: center;
         text-align: center;
         margin-bottom: 10px;
     }
+    .addphoto-imageURL{
+        width:180px;
+        height: 270px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        padding:0px;
+        &:focus, &:active{
+            outline:none ;
+            box-shadow: none;
+        }
+    }
+
+    
+    .button-close{
+        position: absolute;
+        width: 180px;
+
+        .button-close-edit{
+            position: relative;
+            float: right;
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            background-color: none;
+            margin-right: 2%;
+            margin-top: 3%;
+        }
+    }
+
+
 }
 
 .addphoto-text {

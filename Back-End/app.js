@@ -7,9 +7,10 @@ var cors = require('cors')
 const flash = require('connect-flash')
 const session = require('express-session')
 const mongoose = require('mongoose')
+const multer = require('multer');
 
 
-var indexRouter = require('./routes/index');
+var adminRouter = require('./routes/admin');
 var routesUser = require('./routes/users');
 
 var app = express();
@@ -26,6 +27,30 @@ var port= 4000;
     
   )
 
+
+  // chinh image dc luu trong server va ten cua no
+const fileStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'images');
+  },
+  filename: (req, file, cb) => {
+    cb(null, new Date().toISOString() + '-' + file.originalname);
+  }
+});
+
+// dieu chinh format upload hop le
+const fileFilter = (req, file, cb) => {
+  if (
+    file.mimetype === 'image/png' ||
+    file.mimetype === 'image/jpg' ||
+    file.mimetype === 'image/jpeg'
+  ) {
+    cb(null, true);
+  } else {
+    cb(null, false);
+  }
+};
+
 app.use(cors());
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -37,7 +62,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//app.use('/', indexRouter);
+
+//Router
+app.use(adminRouter);
 app.use(routesUser);
 
 
@@ -54,6 +81,12 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
+
+
+
+app.use(
+  multer({ storage: fileStorage, fileFilter: fileFilter }).single('image')
+);
 //- Dùng để đưa thông tin message 
 app.use(flash())
 

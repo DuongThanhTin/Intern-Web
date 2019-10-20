@@ -13,7 +13,7 @@ class AddProductPage extends Component {
   }
 
   componentDidMount(){
-    
+
    }
   render(){
       return(

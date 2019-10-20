@@ -85,11 +85,11 @@ module.exports={
                             {
                                 email: loadUser.mail,
                                 userID: user._id,
+                                
                             },
-                            'dsvsecret',
+                            process.env.SECRETKEY_TOKEN,{expiresIn:'2d'}
                         );
-                        console.log('id', user_id);
-                        
+                       
                         res.json({
                             token: token,
                             userID: user._id,
@@ -215,4 +215,12 @@ module.exports={
             console.log("TCL: ", err);
         })
     },
+    postImage: function(req,res,next){
+        const {url} = req.body;
+        res.json({
+            url:url,
+        })
+    }
+
+    
 }

@@ -21,6 +21,3 @@ export const PRODUCT_COLORS=[
     {label:"White",value:"White"},
     {label:"Black",value:"Black"}];
 
-export default{
-    PRODUCT_BRAND,PRODUCT_CATEGORIES,PRODUCT_SIZE,PRODUCT_COLORS
-}

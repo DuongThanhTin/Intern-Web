@@ -1,0 +1,12 @@
+
+.dropdown{
+    position: relative;
+    &:hover .dropdown-content {
+        display: block;
+    }
+}
+
+.dropdown-edit{
+    margin-left: -310px;
+   
+}

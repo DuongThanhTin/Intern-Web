@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+
 import "./PageHeader.scss";
 import Signup from "../../views/Signup/Signup";
-import Login from "../../views/Login/Login"
+import Login from "../../views/Login/Login";
+import DropDown from "../DropDown/DropDown";
 
 class PageHeader extends Component {
   constructor(props) {
@@ -11,20 +13,18 @@ class PageHeader extends Component {
       login: false,
       isAuth: false,
       token: null,
-      userID: '',
+      userID: ""
     };
   }
 
   componentDidMount() {
     const token = localStorage.getItem("token");
-    const userID = localStorage.getItem('userID');
-    if(!token){
+    const userID = localStorage.getItem("userID");
+    if (!token) {
       return;
+    } else {
+      this.setState({ isAuth: true, token: token, userID: userID });
     }
-    else{
-      this.setState({ isAuth:true, token: token, userID: userID });
-    }
-  
   }
 
   HandleSignupToogle = () => {
@@ -38,20 +38,19 @@ class PageHeader extends Component {
       login: !this.state.login
     });
   };
-  
-  HandleLoginAuth =()=> {
+
+  HandleLoginAuth = () => {
     this.setState({
-      isAuth: true,
+      isAuth: true
     });
- 
   };
 
-  HandleLogout=()=>{
+  HandleLogout = () => {
     this.setState({ isAuth: false, token: null });
-    console.log(this.state.isAuth)  
-    localStorage.removeItem('token');
-    localStorage.removeItem('userID');
-  }
+    console.log(this.state.isAuth);
+    localStorage.removeItem("token");
+    localStorage.removeItem("userID");
+  };
 
   render() {
     let routes = (
@@ -113,146 +112,18 @@ class PageHeader extends Component {
         </div>
         <div className="header-2">
           <ul className="ul-menu">
-            <li className="dropdown">
-              <span>Men</span>
-              <img
-                className="dropdown-images"
-                src="images/icon/arrow.png"
-                alt=""
-              />
-              <ul className="dropdown-content dropdown-edit">
-                <div className="dropdown-characters">
-                  <li>
-                    <a href="/">Tops</a>
-                  </li>
-                  <li>
-                    <a href="/">Bottoms</a>
-                  </li>
-                  <li>
-                    <a href="/">Dresses</a>
-                  </li>
-                  <li>
-                    <a href="/">Jackets</a>
-                  </li>
-                  <li>
-                    <a href="/">Shoes</a>
-                  </li>
-                  <li>
-                    <a href="/">Accesories</a>
-                  </li>
-                  <li>
-                    <a href="/">Sale</a>
-                  </li>
-                </div>
-              </ul>
-            </li>
-            <li className="dropdown">
-              <span>Ladies</span>
-              <img
-                className="dropdown-images"
-                src="images/icon/arrow.png"
-                alt=""
-              />
-              <ul className="dropdown-content dropdown-edit">
-                <div className="dropdown-characters">
-                  <li>
-                    <a href="/">Tops</a>
-                  </li>
-                  <li>
-                    <a href="/">Bottoms</a>
-                  </li>
-                  <li>
-                    <a href="/">Dresses</a>
-                  </li>
-                  <li>
-                    <a href="/">Jackets</a>
-                  </li>
-                  <li>
-                    <a href="/">Shoes</a>
-                  </li>
-                  <li>
-                    <a href="/">Accesories</a>
-                  </li>
-                  <li>
-                    <a href="/">Sale</a>
-                  </li>
-                </div>
-              </ul>
-            </li>
-            <li className="dropdown">
-              <span>Girls</span>
-              <img
-                className="dropdown-images"
-                src="images/icon/arrow.png"
-                alt=""
-              />
-              <ul className="dropdown-content dropdown-edit">
-                <div className="dropdown-characters">
-                  <li>
-                    <a href="/">Tops</a>
-                  </li>
-                  <li>
-                    <a href="/">Bottoms</a>
-                  </li>
-                  <li>
-                    <a href="/">Dresses</a>
-                  </li>
-                  <li>
-                    <a href="/">Jackets</a>
-                  </li>
-                  <li>
-                    <a href="/">Shoes</a>
-                  </li>
-                  <li>
-                    <a href="/">Accesories</a>
-                  </li>
-                  <li>
-                    <a href="/">Sale</a>
-                  </li>
-                </div>
-              </ul>
-            </li>
-            <li className="dropdown">
-              <span>Boys</span>
-              <img
-                className="dropdown-images"
-                src="images/icon/arrow.png"
-                alt=""
-              />
-              <ul className="dropdown-content dropdown-edit">
-                <div className="dropdown-characters">
-                  <li>
-                    <a href="/">Tops</a>
-                  </li>
-                  <li>
-                    <a href="/">Bottoms</a>
-                  </li>
-                  <li>
-                    <a href="/">Dresses</a>
-                  </li>
-                  <li>
-                    <a href="/">Jackets</a>
-                  </li>
-                  <li>
-                    <a href="/">Shoes</a>
-                  </li>
-                  <li>
-                    <a href="/">Accesories</a>
-                  </li>
-                  <li>
-                    <a href="/">Sale</a>
-                  </li>
-                </div>
-              </ul>
-            </li>
+            <DropDown name="Men" />
+            <DropDown name="Ladies" />
+            <DropDown name="Girls" />
+            <DropDown name="Boys" />
           </ul>
         </div>
-        <Signup
-          show={this.state.signup}
-          onHide={this.HandleSignupToogle}
-          
+        <Signup show={this.state.signup} onHide={this.HandleSignupToogle} />
+        <Login
+          show={this.state.login}
+          onHide={this.HandleLoginToogle}
+          HandleLoginHeader={this.HandleLoginAuth}
         />
-        <Login show={this.state.login} onHide={this.HandleLoginToogle} HandleLoginHeader={this.HandleLoginAuth} />
       </div>
     );
   }

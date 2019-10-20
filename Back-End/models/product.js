@@ -8,15 +8,13 @@ const ProductSchema = new Schema({
         require: true,
     },
     category: [],
-
+    brand:[],
+    size: [],
+    color: [],
     price:{
         type: Number,
         require: true,
     },
-
-    size: [],
-    color: [],
-
     quantity:{
         type: Number,
         require: true,
@@ -28,10 +26,11 @@ const ProductSchema = new Schema({
         require: true,
     },
     create_at:{
-        type: Date.now,
+        type: Date,
+        default: Date.now,
     }
 })
 
-const productMongoose = mongoose.model('product',productSchema);
+const productMongoose = mongoose.model('product',ProductSchema);
 
 module.exports = productMongoose;

@@ -12,7 +12,7 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 //Sign Up
 //router.get('/signup',UserController.getSignUp)
-router.post('/signup',UserController.postSignUp)
+router.post('/signup', UserController.postSignUp)
 
 //Login
 //router.get('/login',UserController.getLogin)
