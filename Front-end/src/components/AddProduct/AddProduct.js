@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
+import API from '../../utils/utils'
 import "./AddProduct.scss";
 import AddPhoto from "../AddPhoto/AddPhoto";
 import FormInputProduct from "../FormInputProduct/FormInputProduct";
@@ -61,7 +61,7 @@ class AddProduct extends Component {
   handleComplete = event => {
     event.preventDefault();
     const product = this.state;
-    axios.post("http://localhost:4000/addproduct", product).then(res => {
+    API.post("/addproduct", product).then(res => {
       let isComplete = res.data.complete;
       this.setState({
         isComplete: isComplete

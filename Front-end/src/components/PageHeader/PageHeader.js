@@ -12,6 +12,7 @@ class PageHeader extends Component {
       signup: false,
       login: false,
       isAuth: false,
+      tokenrole:null,
       token: null,
       userID: ""
     };
@@ -20,10 +21,11 @@ class PageHeader extends Component {
   componentDidMount() {
     const token = localStorage.getItem("token");
     const userID = localStorage.getItem("userID");
+    const tokenrole = localStorage.getItem("tokenrole");
     if (!token) {
       return;
     } else {
-      this.setState({ isAuth: true, token: token, userID: userID });
+      this.setState({ isAuth: true, token: token, userID: userID, tokenrole: tokenrole });
     }
   }
 
@@ -39,20 +41,24 @@ class PageHeader extends Component {
     });
   };
 
-  HandleLoginAuth = () => {
+  HandleLoginAuth = (isAuth,tokenRole) => {
     this.setState({
-      isAuth: true
+      isAuth: isAuth,
+      tokenrole: tokenRole,
     });
   };
 
   HandleLogout = () => {
-    this.setState({ isAuth: false, token: null });
-    console.log(this.state.isAuth);
+    this.setState({ isAuth: false, token: null,tokenrole:null });
+    
     localStorage.removeItem("token");
     localStorage.removeItem("userID");
+    localStorage.removeItem("tokenrole");
   };
 
   render() {
+    const {isAuth, tokenrole}=this.state;
+   
     let routes = (
       <div className="register-btn">
         <div className="register-text" onClick={this.HandleSignupToogle}>
@@ -70,10 +76,20 @@ class PageHeader extends Component {
       </div>
     );
 
-    if (this.state.isAuth) {
+    if (isAuth && tokenrole==="customer") {
       routes = (
         <div className="register-btn">
-          <button className="avatar" onClick={this.HandleLogout} />
+          <button className="avatar-customer" onClick={this.HandleLogout} />
+          <div className="">
+            <img className="logo-icon" src="images/icon/cart.svg" alt="" />
+          </div>
+        </div>
+      );
+    }
+    if (isAuth && tokenrole==="admin") {
+      routes = (
+        <div className="register-btn">
+          <button className="avatar-admin" onClick={this.HandleLogout} />
           <div className="">
             <img className="logo-icon" src="images/icon/cart.svg" alt="" />
           </div>

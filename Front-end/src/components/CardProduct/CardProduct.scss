@@ -1,0 +1,102 @@
+.cardproduct{
+    width: 180px;
+    height: 345px;
+    display: flex;
+    flex-direction: column;
+    .cardproduct-image{
+        width: 180px;
+        height: 269px;
+        object-fit: contain;
+        z-index: -1;
+        &:hover .cardproduct-hover{
+            width: 180px;
+            height: 54px;
+            position: relative;
+            background-color: var(--pale-orange);
+            z-index: 1000;
+  
+          }
+    }
+    .cardproduct-info{
+        display: flex;
+        flex-direction: column;
+        .cardproduct-info-title{
+            height: 40px;
+            font-family: Montserrat;
+            font-size: 14px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.43;
+            letter-spacing: normal;
+            color: var(--dark-grey);
+            float: left;
+            margin-top:10px;
+            text-align: left;
+        }
+        .cardproduct-info-price{
+            height: 22px;
+            font-family: Montserrat;
+            font-size: 12px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.83;
+            letter-spacing: normal;
+            color: var(--greyish-brown);
+            margin-top:5px;
+            text-align: left;
+        }
+    }
+}
+.cardproduct-image-edit{
+    position: absolute;
+}
+
+.listproduct-card-soldout{
+    width: 60px;
+    height: 22px;
+    background-color: #808080;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    position: relative;
+    margin-top:-105px;
+    margin-left: -5px;
+    .listproduct-card-soldout-text{
+      width: 53px;
+      height: 18px;
+      font-family: Montserrat;
+      font-size: 12px;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.5;
+      letter-spacing: normal;
+      color: var(--white);
+    }
+  }
+
+  
+
+.cardproduct-hover-text{
+    width: auto;
+    height: 100%;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.57;
+    letter-spacing: normal;
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .cardproduct-hover-text-edit{
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+}

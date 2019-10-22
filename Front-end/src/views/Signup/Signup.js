@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Modal,  } from 'react-bootstrap';
-import axios from 'axios';
+import API from '../../utils/utils';
 
 import './Signup.scss'
 import ButtonHeader from "../../components/ButtonHeader/ButtonHeader";
@@ -45,7 +45,7 @@ class Signup extends Component {
     console.log("Hello", event)
     event.preventDefault();
     const register = this.state;
-    axios.post("http://localhost:4000/signup", register).then(res => {
+    API.post("/signup", register).then(res => {
       console.log(res.data);
       let isError = res.data.error
       this.setState({

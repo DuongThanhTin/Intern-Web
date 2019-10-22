@@ -15,10 +15,11 @@ class App extends Component {
     return (
       <div className="App">
         <Switch>
-          <Route exact path="/" component={Homepage} />
+          <Homepage>
+            {this.props.children}
+          </Homepage>
           <Route exact path="/addproduct" component={AddProduct} />
-          <Route expact path="/top" component={AddProduct}/>
-        </Switch>
+       </Switch>
       </div>
     );
   }

@@ -1,0 +1,72 @@
+.listproduct{
+  position: relative;
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+}
+
+.listproduct-text{
+    height: 22px;
+    margin-top:25px;
+    margin-right: 113px;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.57;
+    letter-spacing: normal;
+    text-align: center;
+    color: var(--dark-grey);
+}
+
+.dropdown-filter{
+  width: 179px;
+  height: 32px;
+  opacity: 0.5;
+  border: solid 1px var(--white-four);
+  display: flex;
+  justify-content: center;
+  margin-top:45px;
+  .filter-text{
+    display: flex;
+    width: auto;
+    height: 100%;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.83;
+    letter-spacing: normal;
+    color: var(--greyish-brown);
+    align-items: center;
+  }
+  .filter-text-right{
+    display: flex;
+    width: auto;
+    height: 100%;
+    align-items: center;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: var(--dark-grey);
+  }
+}
+
+.listproduct-card{
+    display: flex;
+    flex-wrap: nowrap;
+    margin-top:30px;
+}
+.listproduct-card-detail{
+  margin-bottom: 20px;
+  margin-left:20px;
+}
+
+
+

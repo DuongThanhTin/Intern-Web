@@ -81,21 +81,41 @@ module.exports={
                 bcrypt.compare(password,user.password,(err,result)=>{
                     if(result)
                     {
-                        const token = jwt.sign(
-                            {
-                                email: loadUser.mail,
-                                userID: user._id,
-                                
-                            },
-                            process.env.SECRETKEY_TOKEN,{expiresIn:'2d'}
-                        );
-                       
-                        res.json({
-                            token: token,
-                            userID: user._id,
-                            error:true,
-                        })
-                   
+                        if(user.role ==='customer'){
+                            const token = jwt.sign(
+                                {
+                                    email: loadUser.mail,
+                                    userID: loadUser._id,
+                                    tokenrole: loadUser.role,
+                                },
+                                process.env.SECRETKEY_TOKEN,{expiresIn:'2d'}
+                            );
+                           
+                            res.json({
+                                token: token,
+                                userID: loadUser._id,
+                                error:true,
+                                tokenrole: loadUser.role,
+                            })
+                        }
+                        else if(user.role ==='admin'){
+                            const token = jwt.sign(
+                                {
+                                    email: loadUser.mail,
+                                    userID: user._id,
+                                    tokenrole: loadUser.role,
+                                },
+                                process.env.SECRETKEY_TOKEN,{expiresIn:'2d'}
+                            );
+                           
+                            res.json({
+                                token: token,
+                                userID: loadUser._id,
+                                error:true,
+                                tokenrole: loadUser.role,
+                            })
+                        }
+                        
                     }
                     else
                     {

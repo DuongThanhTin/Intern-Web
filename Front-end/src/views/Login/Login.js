@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {  Modal } from "react-bootstrap";
-import axios from 'axios';
+import API from '../../utils/utils'
 
 import "./Login.scss";
 import ButtonHeader from "../../components/ButtonHeader/ButtonHeader";
@@ -21,6 +21,7 @@ class Login extends Component {
       isColorButtonLogin: false,
       error: false,
       token: null,
+      tokenrole:null,
       userID: null,
     };
   }
@@ -42,13 +43,14 @@ class Login extends Component {
   handleLogin = event => {
     event.preventDefault();
     const login = this.state;
-    axios.post("http://localhost:4000/login", login).then(res => {
+    API.post("/login", login).then(res => {
       let isError = res.data.error
       this.setState({
         error: isError
       })
       console.log("Error", this.state.error)
       if(this.state.error){
+        conditiontexterror="login-error-condition-text-show"
         this.props.onHide();
         this.setState({
           isColorButtonLogin: false,
@@ -57,11 +59,13 @@ class Login extends Component {
           password:'',
           token: res.data.token,
           userID: res.data._id,
+          tokenrole: res.data.tokenrole,
           isAuth: true,
         })
         localStorage.setItem('token', res.data.token);
         localStorage.setItem('userID', res.data._id);
-        this.props.HandleLoginHeader(true);
+        localStorage.setItem('tokenrole', res.data.tokenrole);
+        this.props.HandleLoginHeader(true,res.data.tokenrole);
       }
     });
 

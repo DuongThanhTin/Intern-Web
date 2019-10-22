@@ -1,5 +1,6 @@
 
 const ProductModel = require('../models/product')
+const mongoClient = require('mongodb').MongoClient;
 
 
 module.exports={
@@ -44,6 +45,22 @@ module.exports={
         .catch(function(err){
             console.log("TCL: ", err);
         })
+    },
+
+    getListProduct: (req,res,next)=>{
+        mongoClient.connect('mongodb+srv://admin:admin@cluster0-pces2.mongodb.net/test?retryWrites=true&w=majority', {useNewUrlParser: true}, function(err, db) {
+            if (err) throw err;
+         
+            //Important Connect Data
+            var ProductsData = db.db("test").collection("products");
+            ProductsData.find({}).toArray(function (err,data) {
+                res.json({
+                    listproducts: data
+                })
+            })
+       
+            db.close();
+        });
         
     }
 }

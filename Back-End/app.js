@@ -8,7 +8,7 @@ const flash = require('connect-flash')
 const session = require('express-session')
 const mongoose = require('mongoose')
 const multer = require('multer');
-
+require('dotenv').config()
 
 var adminRouter = require('./routes/admin');
 var routesUser = require('./routes/users');

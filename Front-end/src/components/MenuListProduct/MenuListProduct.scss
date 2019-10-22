@@ -1,0 +1,125 @@
+.menulp{
+    display: flex;
+    float: left;
+    width:320px;
+    align-items: flex-start;
+    padding-left: 137.6px;
+    flex-direction: column;
+    text-align: left;
+    position: relative;
+    padding-top:95px;
+}
+
+@mixin text-category-filter{
+    width: auto;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: var(--dark-grey);
+}
+
+@mixin menu-text {
+    width: auto;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.57;
+    letter-spacing: -0.1px;
+    color: var(--greyish-brown);
+}
+
+.menulp-categories{
+    padding-top:4%;
+}
+
+.menulp-categories-text{
+    @include text-category-filter
+}
+
+
+.categories-text{
+    @include menu-text;
+    &:hover{
+        text-decoration: none;
+    }
+}
+
+.menulp-text{
+    padding-top:15%;
+    .menulp-text-words{
+        margin-top:15%;
+    }
+}
+.categories{
+    height: 30px;
+    width: auto;
+    border-bottom: solid 0.1px #979797;
+}
+.menulp-text-alldress{
+    position: relative;
+    width: auto;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.57;
+    letter-spacing: normal;
+    color: var(--bright-orange);
+    &:hover{
+        text-decoration: none;
+    }
+}
+
+.alldresses-border{
+    width: 20px;
+    margin-top:5px;
+    border-bottom: solid 0.5px #979797;
+    height: 30px;
+}
+
+.alldresses-border-down{
+    width: 100px;
+    margin-top:70px;
+    border: solid 0.2px #979797;
+}
+
+
+.menulp-filter-text{
+    @include text-category-filter;
+    margin-top:50px;
+    .filter-text{
+        @include menu-text;
+      
+    }
+}
+
+.border-filter{
+    border-bottom: solid 0.1px #979797;
+    margin-top:20px;
+}
+
+.menulp-filter-distance{
+    margin-top:50px;
+}
+
+.menulp-filter-text-words{
+    display: flex;
+    width:170px;
+    height: 30px;
+    position: relative;
+    .menulp-icon-arrow{
+        width:100%;
+        .icon-arrow{
+            display: flex;
+            float: right;
+        }
+    }
+
+}

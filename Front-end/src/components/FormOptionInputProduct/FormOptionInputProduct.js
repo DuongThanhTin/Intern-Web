@@ -13,9 +13,9 @@ class FormOptionInputProduct extends Component {
   }
 
    handleChange = selectedOption => {
-     console.log(this.props.value);
+    
     this.setState(
-      { selectedOption }
+      { selectedOption: selectedOption }
      );
     this.props.handleValue(selectedOption)
    };

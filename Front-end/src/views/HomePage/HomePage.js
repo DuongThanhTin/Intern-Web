@@ -6,7 +6,8 @@ import PageHeader from '../../components/PageHeader/PageHeader'
 import PageBanner from '../../components/PageBanner/PageBanner';
 import PageFooter from '../../components/PageFooter/PageFooter';
 
-
+import PageBannerListProduct from '../../components/PageBannerListProduct/PageBannerListProduct';
+import { Route, Switch } from "react-router-dom";
 
 class HomePage extends Component {
   constructor(props){
@@ -15,19 +16,18 @@ class HomePage extends Component {
 
     }
   }
-
   //Đã lấy được dữ liệu từ server gửi lên
   componentDidMount(){
   }
-
-  
-
   render(){
   
       return(
           <div className = "homepage">
               <PageHeader onSubmitRegister={this.onSubmitRegister} onSubmitLogin={this.onSubmitLogin}/> 
-              <PageBanner/>
+              <Switch>
+                <Route exact path="/" component={PageBanner}/>
+                <Route path="/top" component={PageBannerListProduct}/>
+              </Switch>
               <PageFooter/>
           </div>
       );
