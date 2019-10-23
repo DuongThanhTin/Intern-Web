@@ -22,9 +22,8 @@ module.exports={
     },
     
     postAddProduct: (req,res,next)=>{
-            const {name, categories,brand,price,size,color,quantity,description,image} = req.body;
+            const {name, categories,brand,price,size,color,quantity,description} = req.body;
                 const productData = new ProductModel({
-                    images:image,
                     name: name,
                     category: categories,
                     brand: brand,

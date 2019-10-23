@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
+
 
 import "./PageHeader.scss";
 import Signup from "../../views/Signup/Signup";
@@ -95,6 +97,7 @@ class PageHeader extends Component {
           </div>
         </div>
       );
+      return <Redirect to="/admin"/>
     }
 
     return (

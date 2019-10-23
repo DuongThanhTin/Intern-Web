@@ -1,0 +1,71 @@
+.pageadmin-header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-top:2%;
+    padding-left:2%;
+}
+
+@mixin pageadmin-text-header($width,$height,$font-size,$font-weight,$line-height,$color){
+    width: $width;
+    height: $height;
+    font-family: Montserrat;
+    font-size: $font-size;
+    font-weight: $font-weight;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: $line-height;
+    letter-spacing: normal;
+    color: $color;
+}
+.pageadmin-header-text-up {
+    @include pageadmin-text-header(186px,36px,28px,bold,1.29,var(--dark-grey))
+}
+
+.pageadmin-header-right-icon{
+    padding-right:30px;
+    cursor: pointer;
+}
+
+.pageadmin-info{
+    display: flex;
+    margin-right: 80px;
+}
+.pageadmin-info-avatar{
+    width: 48px;
+    height: 48px;
+    opacity: 0.8;
+    box-shadow: 0 5px 20px 0 rgba(61, 61, 63, 0.2);
+    border: solid 2px var(--white);
+    background-image: url("/images/example2.jpg");
+    border-radius: 50px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    padding:0px;
+    &:focus, &:active{
+        outline:none ;
+        box-shadow: none;
+    }
+ 
+}
+
+.pageadmin-info-name{
+  display: flex;
+  align-items: center;
+  width: auto;
+  height: 100%;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.71;
+  letter-spacing: normal;
+  color: var(--dark-grey);
+  margin-left: 15px;
+}
+.pageadmin-header-right{
+    display: flex;
+    width: auto;
+}

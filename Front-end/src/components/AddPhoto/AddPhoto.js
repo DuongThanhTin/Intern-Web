@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
+
 
 import "./AddPhoto.scss";
 
@@ -25,7 +25,7 @@ class AddPhoto extends Component {
       urlImage: files[0].name,
       isPhoto: true
     });
-    this.props.handleValue(files[0].name)
+    //this.props.handleValue(files[0].name)
   };
 
   HandleButtonCross = event => {

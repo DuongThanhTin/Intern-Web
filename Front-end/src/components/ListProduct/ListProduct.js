@@ -16,7 +16,6 @@ class ListProduct extends Component {
    API.get("/listproduct")
     .then(res=>{
       const products = res.data.listproducts
-      
       this.setState({ 
         products
        });

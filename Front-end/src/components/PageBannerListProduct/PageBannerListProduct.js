@@ -5,7 +5,6 @@ import './PageBannerListProduct.scss'
 import MenuListProduct from '../MenuListProduct/MenuListProduct'
 import ListProduct from '../ListProduct/ListProduct' 
 
-
 class PageBannerListProduct extends Component {
  
   render(){
@@ -13,7 +12,7 @@ class PageBannerListProduct extends Component {
       return(
           <div className = "pagebanner-product">
             <MenuListProduct/>
-            <ListProduct/>
+            <ListProduct />
           </div>
       );
   }

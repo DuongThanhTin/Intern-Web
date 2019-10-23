@@ -1,25 +1,47 @@
 import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch,Redirect } from "react-router-dom";
 
 import Homepage from "./views/Homepage/HomePage";
-import AddProduct from "./views/AddProductPage/AddProductPage";
+import AdminPage from "./views/AdminPage/AdminPage";
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {};
+  constructor(props) {
+    super(props);
+    this.state = {
+      isAuth: false,
+      tokenrole:null,
+      token: null,
+      userID: ""
+    };
+  }
+
+  componentDidMount() {
+    const token = localStorage.getItem("token");
+    const userID = localStorage.getItem("userID");
+    const tokenrole = localStorage.getItem("tokenrole");
+    if (!token) {
+      return;
+    } else {
+      this.setState({ isAuth: true, token: token, userID: userID, tokenrole: tokenrole });
+    }
   }
 
   render() {
-    
+    const {tokenrole} = this.state;
+    let routes;
+    if(tokenrole==='admin'){
+      routes=(<Route  path="/admin" component={AdminPage}/>)
+    }
+    else if(tokenrole==="customer"){
+      routes=(<Redirect to="/"/>)
+    }
     return (
       <div className="App">
-        <Switch>
-          <Homepage>
-            {this.props.children}
-          </Homepage>
-          <Route exact path="/addproduct" component={AddProduct} />
-       </Switch>
+      
+          <Route exact path="/" component={Homepage}/>
+          <Route  path="/categories" component={Homepage}/>  
+          <Route  path="/admin" component={AdminPage}/>
+     
       </div>
     );
   }

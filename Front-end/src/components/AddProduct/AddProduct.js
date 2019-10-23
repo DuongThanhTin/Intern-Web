@@ -20,37 +20,55 @@ class AddProduct extends Component {
       name: "",
       categories: [],
       brand: [],
-      color: [],
+      color: "",
       price: "",
-      size: [],
-      image: [],
+      size: "",
+      image: "",
       description: "",
-      quantity: ""
+      quantity: "",
+      username:"",
+      tokenrole:null,
+      token:null,
     };
   }
 
+  componentDidMount() {
+    const token = localStorage.getItem("token");
+    const username = localStorage.getItem("username");
+    const tokenrole = localStorage.getItem("tokenrole");
+    if (!token) {
+      return;
+    } else {
+      this.setState({  token: token, username: username, tokenrole: tokenrole });
+    }
+  }
+
   handleValueCategories = value => {
-    this.setState(prevState => ({
-      categories: [...prevState.categories, value]
-    }));
-    console.log("categories ", this.state.categories);
+    this.setState({
+      categories: value
+    });
   };
 
   handleValueBrand = value => {
-    this.setState(prevState => ({ brand: [...prevState.brand, value] }));
+    this.setState({
+      brand: value
+    });
     console.log("brand", this.state.brand);
   };
+  
   handleValueSize = value => {
-    this.setState(prevState => ({ size: [...prevState.size, value] }));
+    this.setState({
+      size: value
+    });
     console.log("size", this.state.size);
   };
 
   handleValueColor = value => {
-    this.setState(prevState => ({ color: [...prevState.color, value] }));
+    this.setState({
+      color: value
+    });
     console.log("color", this.state.color);
   };
-
-  handleValueImage = value => {};
 
   onChangeValue = event => {
     this.setState({
@@ -99,7 +117,11 @@ class AddProduct extends Component {
               Products / Add product
             </div>
           </div>
-          <div>
+          <div className="addproduct-header-right">
+            <div className="pageadmin-info">
+            <button className="pageadmin-info-avatar"/>
+            <div className="pageadmin-info-name">{this.state.username}</div>
+            </div>
             <img
               className="addproduct-header-right-icon"
               src="images/icon/mail.svg"
@@ -138,22 +160,19 @@ class AddProduct extends Component {
               <AddPhoto
                 name="photo_exmaple_1"
                 id="photo_exmaple_1"
-                handleValue={this.handleValueImage.bind(this)}
-              />
+               />
               <AddPhoto
                 name="photo_exmaple_2"
                 id="photo_exmaple_2"
-                handleValue={this.handleValueImage.bind(this)}
               />
               <AddPhoto
                 name="photo_exmaple_3"
                 id="photo_exmaple_3"
-                handleValue={this.handleValueImage.bind(this)}
               />
               <AddPhoto
                 name="photo_exmaple_4"
                 id="photo_exmaple_4"
-                handleValue={this.handleValueImage.bind(this)}
+                
               />
             </div>
             <div className="condition-text">

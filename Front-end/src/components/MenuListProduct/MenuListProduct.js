@@ -15,21 +15,22 @@ class MenuListProduct extends Component {
 
   render() {
     const menu_Category_Text = [
-      { url: "/product/Rompers", text: " Rompers/ Jumpsuits" },
-      { url: "/product/casual", text: "Casual dresses" },
-      { url: "/product/goingout", text: "Going out dresses" },
-      { url: "/product/party", text: "Party/ Ocassion dresses" },
-      { url: "/product/mini", text: "Mini/ Madi dresses" },
-      { url: "/product/set", text: "Sets" }
+      {id:11, url: "/categories/", text: " Rompers/ Jumpsuits" },
+      {id:21, url: "/categories/", text: "Casual dresses" },
+      {id:31, url: "/categories/", text: "Going out dresses" },
+      {id:41, url: "/categories/", text: "Party/ Ocassion dresses" },
+      {id:51, url: "/categories/", text: "Mini/ Madi dresses" },
+      {id:61, url: "/categories/", text: "Sets" }
     ];
 
     let arrMenuCategory = menu_Category_Text.map((data, index) => (
       <div key={index} className="menulp-text-words">
-        <Link to={data.url} className="categories-text">
+        <Link to={`${data.url}:id=${data.id}`} className="categories-text">
           {data.text}
         </Link>
       </div>
     ));
+
     const menu_Filter_Text = [
       { text: "Size" },
       { text: "Color" },
@@ -53,7 +54,7 @@ class MenuListProduct extends Component {
           <div className="menulp-categories-text">Category</div>
           <div className="menulp-text">
             <div className="categories">
-            <Link to="/product/alldresses" className="menulp-text-alldress">
+            <Link to="/categories/alldresses" className="menulp-text-alldress">
               All dresses
             </Link>
             </div>

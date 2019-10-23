@@ -160,6 +160,48 @@
     padding-top:2em;
 }
 
+.pageadmin-info{
+    display: flex;
+    margin-right: 80px;
+}
+.pageadmin-info-avatar{
+    width: 48px;
+    height: 48px;
+    opacity: 0.8;
+    box-shadow: 0 5px 20px 0 rgba(61, 61, 63, 0.2);
+    border: solid 2px var(--white);
+    background-image: url("/images/example2.jpg");
+    border-radius: 50px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    padding:0px;
+    &:focus, &:active{
+        outline:none ;
+        box-shadow: none;
+    }
+ 
+}
+
+.pageadmin-info-name{
+  display: flex;
+  align-items: center;
+  width: auto;
+  height: 100%;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.71;
+  letter-spacing: normal;
+  color: var(--dark-grey);
+  margin-left: 15px;
+}
+.addproduct-header-right{
+    display: flex;
+    width: auto;
+}
 
 .button-cancel{
     margin-right: 20px;

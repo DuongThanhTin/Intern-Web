@@ -78,9 +78,11 @@ module.exports={
             
             else if(user){
                 loadUser = user
+               
                 bcrypt.compare(password,user.password,(err,result)=>{
                     if(result)
                     {
+                     
                         if(user.role ==='customer'){
                             const token = jwt.sign(
                                 {
@@ -103,6 +105,7 @@ module.exports={
                                 {
                                     email: loadUser.mail,
                                     userID: user._id,
+                                    username: loadUser.username,
                                     tokenrole: loadUser.role,
                                 },
                                 process.env.SECRETKEY_TOKEN,{expiresIn:'2d'}
@@ -111,6 +114,7 @@ module.exports={
                             res.json({
                                 token: token,
                                 userID: loadUser._id,
+                                username: loadUser.username,
                                 error:true,
                                 tokenrole: loadUser.role,
                             })

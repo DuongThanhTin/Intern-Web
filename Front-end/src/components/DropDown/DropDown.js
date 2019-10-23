@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link,Router } from "react-router-dom";
 
 //import axios from 'axios';
 
@@ -21,26 +21,27 @@ class DropDown extends Component {
           <img className="dropdown-images" src="images/icon/arrow.png" alt="" />
           <ul className="dropdown-content dropdown-edit">
             <div className="dropdown-characters">
+              
               <li>
-                <Link to="/top">Tops</Link>
+                <Link to="/categories">Tops</Link>
               </li>
               <li>
-                <Link to="/bottom">Bottoms</Link>
+                <Link to="/categories">Bottoms</Link>
               </li>
               <li>
-                <Link to="/dress">Dresses</Link>
+                <Link to="/categories">Dresses</Link>
               </li>
               <li>
-                <Link to="/jacket">Jackets</Link>
+                <Link to="/categories">Jackets</Link>
               </li>
               <li>
-                <Link to="/shoes">Shoes</Link>
+                <Link to="/categories">Shoes</Link>
               </li>
               <li>
-                <Link to="/accesories">Accesories</Link>
+                <Link to="/categories">Accesories</Link>
               </li>
               <li>
-                <Link to="/sale">Sale</Link>
+                <Link to="/categories">Sale</Link>
               </li>
             </div>
           </ul>

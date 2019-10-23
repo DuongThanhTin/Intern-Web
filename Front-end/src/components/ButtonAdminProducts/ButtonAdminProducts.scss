@@ -1,0 +1,59 @@
+.pageaddmin-button-orange{
+    width: 156px;
+    height: 48px;
+    border-radius: 2px;
+    background-color: var(--pale-orange);
+    padding:0px;
+    border:none;
+    display: flex;
+    text-align: center;
+}
+
+
+.pageaddmin-button-white{
+    width: 112px;
+    height: 48px;
+    border-radius: 2px;
+    border: solid 1px var(--white-three);
+    background-color: var(--white);
+    padding:0px;
+    border:none;
+    display: flex;
+    text-align: center;
+}
+
+.button-text{
+    width: 100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    .text-white{
+        width: auto;
+        height: 24px;
+        font-family: Montserrat;
+        font-size: 16px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.5;
+        letter-spacing: normal;
+        text-align: center;
+        color: var(--white);
+    
+    }
+    .text-orange{
+        width: auto;
+        height: 100%;
+        font-family: Montserrat;
+        font-size: 14px;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.71;
+        letter-spacing: normal;
+        color: var(--pale-orange);
+        margin-top:5px;
+        margin-left:9px;
+    }
+    
+}

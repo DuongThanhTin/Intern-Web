@@ -58,12 +58,13 @@ class Login extends Component {
           email:'',
           password:'',
           token: res.data.token,
-          userID: res.data._id,
+          userID: res.data.userID,
           tokenrole: res.data.tokenrole,
           isAuth: true,
         })
         localStorage.setItem('token', res.data.token);
-        localStorage.setItem('userID', res.data._id);
+        localStorage.setItem('userID', res.data.userID);
+        localStorage.setItem('username', res.data.username);
         localStorage.setItem('tokenrole', res.data.tokenrole);
         this.props.HandleLoginHeader(true,res.data.tokenrole);
       }

@@ -19,7 +19,10 @@ const ProductSchema = new Schema({
         type: Number,
         require: true,
     },
-    images:[],
+    images:{
+        type: String,
+        default: "images/example-3.jpg",  
+    },
     
     description:{
         type: String,
