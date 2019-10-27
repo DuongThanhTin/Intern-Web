@@ -21,7 +21,8 @@ class PageHeader extends Component {
       isAuth: false,
       tokenrole:null,
       token: null,
-      userID: ""
+      userID: "",
+      cart:1,
     };
   }
 
@@ -66,7 +67,6 @@ class PageHeader extends Component {
       autoClose: 2000,
     });
     this.setState({ isAuth: false, token: null,tokenrole:null });
-   
     localStorage.removeItem("token");
     localStorage.removeItem("username");
     localStorage.removeItem("userID");
@@ -74,7 +74,24 @@ class PageHeader extends Component {
   };
 
   render() {
-    const {isAuth, tokenrole}=this.state;
+    const {isAuth, tokenrole,cartquantity}=this.state;
+    let cartNumber;
+    if(cartquantity===1){
+      cartNumber=(
+      <div>
+        <div className="cartitem-quantity">{cartquantity}</div>
+        <div className="cart-hover">
+        <CartContainer showCartQuantity={this.showCartQuantity}/>
+        </div>
+      </div>
+      )
+    }
+    else{
+      cartNumber=(
+      <div></div>
+      )
+    }
+
    
     let routes = (
       <div className="register-btn">
@@ -90,9 +107,7 @@ class PageHeader extends Component {
         <div className="icon-cart">
         <img className="cart-quantity" alt=""/>
         <img className="logo-icon " src="/images/icon/cart.svg" alt="" onClick={this.HandleCartToogle} />
-            <div className="cart-hover">
-            <CartContainer/>
-            </div>
+          {cartNumber}
         </div>
       </div>
     );
@@ -104,9 +119,7 @@ class PageHeader extends Component {
       
           <div className="icon-cart">
             <img className="logo-icon" src="/images/icon/cart.svg" alt="" onClick={this.HandleCartToogle} />
-            <div className="cart-hover">
-            <CartContainer/>
-            </div>
+            {cartNumber}
           </div>
         </div>
       );

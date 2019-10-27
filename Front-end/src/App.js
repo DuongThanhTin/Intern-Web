@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Switch,Redirect } from "react-router-dom";
+import {  Route, Switch,Redirect } from "react-router-dom";
 
 import Homepage from "./views/Homepage/HomePage";
 import AdminPage from "./views/AdminPage/AdminPage";
@@ -40,9 +40,9 @@ class App extends Component {
     }
     else if(tokenrole==="admin"){
       routes=(
-        <Switch>
-          <Route path="/admin" render ={()=>(<AdminPage/>)}/>
-        </Switch>
+        
+            <Route  path="/admin" render ={()=>(<AdminPage/>)}/>
+       
 
       )
     }
@@ -51,8 +51,9 @@ class App extends Component {
       <div className="App">
           <Route exact path="/" component={Homepage}/>
           <Route  path="/categories" component={Homepage}/> 
-          {routes}
           <Route  path="/admin" render ={()=>(<AdminPage/>)}/>
+      
+       
       
       </div>
     );

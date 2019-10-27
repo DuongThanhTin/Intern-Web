@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import AddProduct from "../../components/AddProduct/AddProduct";
 import Menu from "../../components/Menu/Menu";
-import Product from "../../components/AdminProduct/AdminProduct";
+import AdminProduct from "../../components/AdminProduct/AdminProduct";
 
 import "./AdminPage.scss";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -15,7 +15,7 @@ class AdminPage extends Component {
           <Menu />
           <Switch>
             <Route exact path="/admin/addproduct" component={AddProduct} />
-            <Route exact path="/admin" component={Product} />
+            <Route exact path="/admin" component={AdminProduct} />
           </Switch>
         </div>
       </Router>

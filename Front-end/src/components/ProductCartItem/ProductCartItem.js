@@ -4,18 +4,18 @@ import "./ProductCartItem.scss";
 
 class ProductCartItem extends Component {
   render() {
-    var {item} = this.props
+    var {name,price,color,size,item} = this.props
     return (
       <div className="productcartitem">
         <div className="productcartitem-image">
           <img src="/images/example-3.jpg" alt="" />
         </div>
         <div className="productcartitem-content">
-          <div className="content-title">{item.name}</div>
+          <div className="content-title">{name}</div>
           <div className="content-down">
-            <div className="content-down-text-left">&#36;{item.price}</div>
+            <div className="content-down-text-left">&#36;{price}</div>
             <div className="content-down-text-right">
-              {item.size}-{item.color}-{item.quantity} pcs
+              {size} - {color} - {item.quantity} pcs
             </div>
           </div>
         </div>

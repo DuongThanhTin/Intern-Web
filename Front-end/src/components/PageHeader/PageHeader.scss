@@ -178,6 +178,22 @@
     top:55px;
     z-index:100000;
 }
+.cartitem-quantity{
+    position: absolute;
+    top:-1px;
+    right:-1px;
+    z-index: 10;
+    width: 8px;
+    height: 22px;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.83;
+    letter-spacing: normal;
+    color: var(--white);
+}
 
 .header-2{
     width: 100%;
