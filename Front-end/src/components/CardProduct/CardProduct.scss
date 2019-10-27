@@ -14,7 +14,13 @@
             position: relative;
             background-color: var(--pale-orange);
             z-index: 1000;
-  
+            top:80%;
+            transition: .5s;
+            text-decoration: none;
+            cursor: pointer;
+            &:hover a{         
+                text-decoration: none;
+            }
           }
     }
     .cardproduct-info{
@@ -51,6 +57,7 @@
 }
 .cardproduct-image-edit{
     position: absolute;
+
 }
 
 .listproduct-card-soldout{
@@ -94,9 +101,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
     .cardproduct-hover-text-edit{
         height: 100%;
         display: flex;
         align-items: center;
+       
     }
 }

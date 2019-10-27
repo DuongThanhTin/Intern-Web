@@ -6,6 +6,10 @@ import "./PageHeader.scss";
 import Signup from "../../views/Signup/Signup";
 import Login from "../../views/Login/Login";
 import DropDown from "../DropDown/DropDown";
+import CartContainer from "../../containers/CartContainer"
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 class PageHeader extends Component {
   constructor(props) {
@@ -13,6 +17,7 @@ class PageHeader extends Component {
     this.state = {
       signup: false,
       login: false,
+      cart: false,
       isAuth: false,
       tokenrole:null,
       token: null,
@@ -42,6 +47,11 @@ class PageHeader extends Component {
       login: !this.state.login
     });
   };
+  HandleCartToogle = () => {
+    this.setState({
+      cart: !this.state.cart
+    });
+  };
 
   HandleLoginAuth = (isAuth,tokenRole) => {
     this.setState({
@@ -51,9 +61,14 @@ class PageHeader extends Component {
   };
 
   HandleLogout = () => {
+    toast.error("Logout Success!", {
+      position: toast.POSITION.BOTTOM_CENTER,
+      autoClose: 2000,
+    });
     this.setState({ isAuth: false, token: null,tokenrole:null });
-    
+   
     localStorage.removeItem("token");
+    localStorage.removeItem("username");
     localStorage.removeItem("userID");
     localStorage.removeItem("tokenrole");
   };
@@ -71,9 +86,13 @@ class PageHeader extends Component {
             <strong>Log In </strong>
           </div>
         </button>
-
-        <div className="">
-          <img className="logo-icon" src="images/icon/cart.svg" alt="" />
+   
+        <div className="icon-cart">
+        <img className="cart-quantity" alt=""/>
+        <img className="logo-icon " src="/images/icon/cart.svg" alt="" onClick={this.HandleCartToogle} />
+            <div className="cart-hover">
+            <CartContainer/>
+            </div>
         </div>
       </div>
     );
@@ -82,8 +101,12 @@ class PageHeader extends Component {
       routes = (
         <div className="register-btn">
           <button className="avatar-customer" onClick={this.HandleLogout} />
-          <div className="">
-            <img className="logo-icon" src="images/icon/cart.svg" alt="" />
+      
+          <div className="icon-cart">
+            <img className="logo-icon" src="/images/icon/cart.svg" alt="" onClick={this.HandleCartToogle} />
+            <div className="cart-hover">
+            <CartContainer/>
+            </div>
           </div>
         </div>
       );
@@ -93,7 +116,7 @@ class PageHeader extends Component {
         <div className="register-btn">
           <button className="avatar-admin" onClick={this.HandleLogout} />
           <div className="">
-            <img className="logo-icon" src="images/icon/cart.svg" alt="" />
+            <img className="logo-icon " src="/images/icon/cart.svg" alt="" />
           </div>
         </div>
       );
@@ -115,14 +138,14 @@ class PageHeader extends Component {
                   <a className="search-button" href="/">
                     <img
                       className="icon-search"
-                      src="images/icon/search.png"
+                      src="/images/icon/search.png"
                       alt=""
                     />
                   </a>
                 </div>
               </form>
               <div className="logo">
-                <img className="" src="images/icon/logo.png" alt="" />
+                <img className="" src="/images/icon/logo.png" alt="" />
               </div>
 
               {routes}
@@ -143,6 +166,7 @@ class PageHeader extends Component {
           onHide={this.HandleLoginToogle}
           HandleLoginHeader={this.HandleLoginAuth}
         />
+             <ToastContainer/>
       </div>
     );
   }

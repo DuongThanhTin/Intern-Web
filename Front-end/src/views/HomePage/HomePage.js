@@ -20,7 +20,6 @@ class HomePage extends Component {
     return (
       <Router>
       <div className="homepage">
-      
           <PageHeader
             onSubmitRegister={this.onSubmitRegister}
             onSubmitLogin={this.onSubmitLogin}

@@ -5,6 +5,9 @@ import API from '../../utils/utils';
 import './Signup.scss'
 import ButtonHeader from "../../components/ButtonHeader/ButtonHeader";
 
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 let conditiontexterror ="signup-error-condition-text-show";
 let borderinput = "signup-form-input ";
 let conditionpassword = "signup-error-condition-text-show ";
@@ -63,7 +66,10 @@ class Signup extends Component {
           password:'',
         
         });
-        alert('Register Complete!')
+        toast.info("Sign Up Success!", {
+          position: toast.POSITION.BOTTOM_CENTER,
+          autoClose: 2000,
+        });
       }
     });
 
@@ -184,6 +190,7 @@ class Signup extends Component {
                     onHandleChangeColor={this.state.isColorButtonRegister}
                     onHandleSubmit={this.onSubmitRegister}
                   />
+       
                 </div>
               </div>
             </form>

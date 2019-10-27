@@ -60,7 +60,26 @@ module.exports={
        
             db.close();
         });
-        
+    },
+
+    getListProductCategory: (req,res,next)=>{
+        mongoClient.connect('mongodb+srv://admin:admin@cluster0-pces2.mongodb.net/test?retryWrites=true&w=majority', {useNewUrlParser: true}, function(err, db) {
+            if (err) throw err;
+         
+            //Important Connect Data
+            var ProductsData = db.db("test").collection("products");
+            let categoryId = req.params.categoriesId;
+            console.log(categoryId)    
+            ProductsData.find({category: { $elemMatch: {id: 11}}}).toArray(function (err,data) {
+                    console.log(data)
+                    return res.json({
+                        listproducts: data
+                    })    
+            })
+               
+            db.close();
+        });
+      
     }
 }
 

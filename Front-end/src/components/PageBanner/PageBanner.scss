@@ -1,9 +1,12 @@
+.container-header{
+    height: auto;
+}
+
 .pagebanner{
     width: 1180px;
-    height: 513px;
+    height: auto;
     margin-top:30px;
     text-align: center;
-
 }
 
 .banner-image {
@@ -65,7 +68,7 @@
 .banner-card{
     margin-top: 20px;
     margin-bottom: 0px ;
-    padding-bottom: 300px;
+    padding-bottom: 40px;
 }
 
 .banner-ImgOverlay{

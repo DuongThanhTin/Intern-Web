@@ -38,7 +38,7 @@ class AddPhoto extends Component {
   render() {
     let isImage = (
       <div className="addphoto-edit" onClick={this.handleClick}>
-        <img className="addphoto-image" src="images/icon/add.svg" alt="" />
+        <img className="addphoto-image" src="/images/icon/add.svg" alt="" />
         <div className="addphoto-text">Add Photo</div>
         <input
           id="file"

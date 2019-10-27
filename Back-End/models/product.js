@@ -21,7 +21,7 @@ const ProductSchema = new Schema({
     },
     images:{
         type: String,
-        default: "images/example-3.jpg",  
+        default: "/images/example-3.jpg",  
     },
     
     description:{

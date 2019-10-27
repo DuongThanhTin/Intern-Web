@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import API from '../../utils/utils'
 
-import "./ListProduct.scss";
+import "./ListProductCategory.scss";
 import CardProduct from "../CardProduct/CardProduct";
-import ListProductCategory from "../ListProductCategory/ListProductCategory";
-import { ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
-class ListProduct extends Component {
+
+  
+class ListProductCategory extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,24 +13,25 @@ class ListProduct extends Component {
     };
   }
   componentDidMount(){
-   // const postId = this.props.match.params.postId;
-   API.get("/categories")
+    const id = this.props.match.params.id;
+    console.log(id)
+    API.get("/categories/"+ id)
     .then(res=>{
       const products = res.data.listproducts
       this.setState({ 
         products
        });
-  
     })
-    
+   
+ 
   }
 
   render() {
+
     const {products} = this.state
-    const {HandleAddtoCart}=this.props
     let arrProduct =products.map((product,index)=>(
       <div  key={index} className="listproduct-card-detail">
-      <CardProduct name={product.name} price={product.price} quantity={product.quantity} _id={product._id} product={product} HandleAddtoCart={HandleAddtoCart}/>
+      <CardProduct name={product.name} price={product.price} quantity={product.quantity}/>
       </div>
     ))
     return (
@@ -45,12 +45,12 @@ class ListProduct extends Component {
           </div>
         </div>
         <div className="listproduct-card flex-wrap">
-         {arrProduct}   
+         {arrProduct}
+        
         </div>
-        <ToastContainer/>
       </div>
     );
   }
 }
 
-export default ListProduct;
+export default ListProductCategory;

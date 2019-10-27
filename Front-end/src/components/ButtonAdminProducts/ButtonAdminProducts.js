@@ -8,7 +8,7 @@ class ButtonAdminProducts extends Component {
          let desginButton= `${this.props.orange} ${this.props.white}` 
          
       return (
-            <button  className={desginButton} onClick={this.props.Click}>
+            <button  className={desginButton} onClick={this.props.onClick}>
                 <div className="button-text">
                 <img src={this.props.image} alt=""/>
                 <div className={this.props.text}>{this.props.buttonname}</div>

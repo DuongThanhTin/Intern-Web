@@ -1,0 +1,40 @@
+.cartheader{
+    width: 270px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+   
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+
+
+.cartheader-viewcart{
+    width: 270px;
+    height:80px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 14px 30px 0 rgba(0, 0, 0, 0.14);
+    border: solid 0.5px #eaeaea;
+    background-color: #fbfbfb;
+    z-index:10000;
+    .viewcart-text{    
+        width: 70px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        font-family: Montserrat;
+        font-size: 14px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.57;
+        letter-spacing: normal;
+        color: var(--pale-orange);
+      
+    }
+}

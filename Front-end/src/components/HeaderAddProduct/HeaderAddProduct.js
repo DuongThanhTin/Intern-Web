@@ -5,15 +5,25 @@ import { Redirect } from "react-router-dom";
 import "./HeaderAddProduct.scss";
 
 class HeaderAddProduct extends Component {
-
+  constructor(props){
+   super(props);
+   this.state={
+    isAuth: true,
+   }
+  }
 
   
   HandleLogout = () => {
+    this.setState({
+      isAuth: false,
+    })
     localStorage.removeItem("token");
     localStorage.removeItem("userID");
     localStorage.removeItem("tokenrole");
     localStorage.removeItem("username");
-    return <Redirect to="/"/>
+    if(!this.state.isAuth){
+      return <Redirect to="/"/>
+    }
   };
 
 

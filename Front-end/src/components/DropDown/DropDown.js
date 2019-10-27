@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link,Router } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 //import axios from 'axios';
 
@@ -18,10 +18,9 @@ class DropDown extends Component {
       <div className="dropdown-main">
         <li className="dropdown">
           <span>{this.props.name}</span>
-          <img className="dropdown-images" src="images/icon/arrow.png" alt="" />
+          <img className="dropdown-images" src="/images/icon/arrow.png" alt="" />
           <ul className="dropdown-content dropdown-edit">
-            <div className="dropdown-characters">
-              
+            <div className="dropdown-characters">            
               <li>
                 <Link to="/categories">Tops</Link>
               </li>

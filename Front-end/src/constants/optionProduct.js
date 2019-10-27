@@ -1,12 +1,10 @@
 export const  PRODUCT_CATEGORIES=[
-    {id:101, label:"Rompers dresses", value: "Rompers dresses"},
-    {id:102,label:"Causual dresses", value: "Causual dresses"},
-    {id:103,label:"Going out dresses",value:"Going out dresses"},
-    {id:104,label:"Party dresses", value: "Party dresses"},
-    {id:105,label:"Ocassion dresses", value: "Ocassion dresses"},
-    {id:106,label:"Mini dresses", value: "Mini dresses"},
-    {id:107,label:"Maxi dresses", value: "Maxi dresses"},
-    {id:108,label:"Midi dresses", value: "Midi dresses"},]
+    {id:11, label:"Rompers dresses", value: "Rompers dresses"},
+    {id:21,label:"Causual dresses", value: "Causual dresses"},
+    {id:31,label:"Going out dresses",value:"Going out dresses"},
+    {id:41,label:"Party dresses", value: "Party dresses"},
+    {id:51,label:"Mini dresses", value: "Mini dresses"},
+    {id:61,label:"Sets", value: "Sets"},]
     
 
 export const PRODUCT_BRAND=[

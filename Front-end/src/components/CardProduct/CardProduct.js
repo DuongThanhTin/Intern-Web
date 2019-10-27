@@ -1,50 +1,57 @@
 import React, { Component } from "react";
-
+import {  Link } from "react-router-dom";
 import "./CardProduct.scss";
+import {toast } from "react-toastify";
 
 class CardProduct extends Component {
   render() {
+    const {_id,name,price,quantity,product} = this.props
     let routes = (
       <div>
         <div className="cardproduct-image">
           <div className="cardproduct-image-edit">
-          <img  src="images/example-3.jpg" alt="" />
+          <img  src="/images/example-3.jpg" alt="" />
           </div>
-          <div className="cardproduct-hover">
+        
+          <div className="cardproduct-hover"  onClick={()=>this.HandleAddtoCart(product)}>
             <div className="cardproduct-hover-text">
               <div className="cardproduct-hover-text-edit">+ Quick Shop</div>
-            </div>
+            </div> 
+          
           </div>
+         
         </div>
         <div className="cardproduct-info">
           <div className="cardproduct-info-title-edit">
-            <div className="cardproduct-info-title">{this.props.name}</div>
+            <div className="cardproduct-info-title">{name}</div>
           </div>
           <div>
-            <div className="cardproduct-info-price">${this.props.price}</div>
+            <div className="cardproduct-info-price">${price}</div>
           </div>
         </div>
       </div>
     );
-    if (this.props.quantity === 0) {
+    if (quantity === 0) {
       routes = (
         <div>
           <div className="cardproduct-image">
           <div className="cardproduct-image-edit">
-          <img  src="images/example-3.jpg" alt="" />
+          <img  src="/images/example-3.jpg" alt="" />
           </div>
           <div className="cardproduct-hover">
+          
             <div className="cardproduct-hover-text">
-              <div className="cardproduct-hover-text-edit">+ Quick Shop</div>
-            </div>
+              <div className="cardproduct-hover-text-edit">+ Quick Shop  </div>
+            </div> 
+      
           </div>
           </div>
           <div className="cardproduct-info">
             <div className="cardproduct-info-title-edit">
-              <div className="cardproduct-info-title">{this.props.name}</div>
+              <div className="cardproduct-info-title">{name}</div>
             </div>
             <div>
-              <div className="cardproduct-info-price">${this.props.price}</div>
+              <div className="cardproduct-info-price">${price}</div>
             </div>
           </div>
           <div className="listproduct-card-soldout">
@@ -54,6 +61,15 @@ class CardProduct extends Component {
       );
     }
     return <div className="cardproduct">{routes}</div>;
+  }
+
+  HandleAddtoCart=(product)=>{
+    
+    toast.info("Success Add Product to Cart!", {
+      position: toast.POSITION.BOTTOM_CENTER,
+      autoClose: 2000,
+    });
+    this.props.HandleAddtoCart(product)
   }
 }
 

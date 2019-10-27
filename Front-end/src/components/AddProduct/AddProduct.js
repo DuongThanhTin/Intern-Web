@@ -10,6 +10,8 @@ import {
   PRODUCT_BRAND,
   PRODUCT_COLORS
 } from "../../constants/optionProduct";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import Button from "../../components/ButtonAddProduct/ButtonAddProduct";
 
 class AddProduct extends Component {
@@ -91,9 +93,14 @@ class AddProduct extends Component {
           description: "",
           quantity: ""
         })
+        toast.success("Success Add Product!", {
+          position: toast.POSITION.TOP_RIGHT,
+          autoClose: 5000,
+        });
       }
     });
-    console.log("price", product.price);
+   
+  
   };
 
   render() {
@@ -124,12 +131,12 @@ class AddProduct extends Component {
             </div>
             <img
               className="addproduct-header-right-icon"
-              src="images/icon/mail.svg"
+              src="/images/icon/mail.svg"
               alt=""
             />
             <img
               className="addproduct-header-right-icon"
-              src="images/icon/notification.svg"
+              src="/images/icon/notification.svg"
               alt=""
             />
           </div>
@@ -269,6 +276,7 @@ class AddProduct extends Component {
                 addproductText="button-text-complete"
                 buttonname="Complete"
               />
+              <ToastContainer/>
             </div>
           </div>
         </form>

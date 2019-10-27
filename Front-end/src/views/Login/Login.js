@@ -1,14 +1,17 @@
 import React, { Component } from "react";
-import {  Modal } from "react-bootstrap";
-import API from '../../utils/utils'
+import { Modal } from "react-bootstrap";
+import API from "../../utils/utils";
 
 import "./Login.scss";
 import ButtonHeader from "../../components/ButtonHeader/ButtonHeader";
 import FormInput from "../../components/FormInput/FormInput";
 
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 let borderinput = "form-input ";
-let conditiontexterror="login-error-condition-text-show "
+let conditiontexterror = "login-error-condition-text-show ";
 
 class Login extends Component {
   constructor(props) {
@@ -21,11 +24,10 @@ class Login extends Component {
       isColorButtonLogin: false,
       error: false,
       token: null,
-      tokenrole:null,
-      userID: null,
+      tokenrole: null,
+      userID: null
     };
   }
-  
 
   onChangeInputValue = event => {
     this.setState({
@@ -39,53 +41,53 @@ class Login extends Component {
     }
   };
 
-
   handleLogin = event => {
     event.preventDefault();
     const login = this.state;
     API.post("/login", login).then(res => {
-      let isError = res.data.error
+      let isError = res.data.error;
       this.setState({
         error: isError
-      })
-      console.log("Error", this.state.error)
-      if(this.state.error){
-        conditiontexterror="login-error-condition-text-show"
+      });
+      console.log("Error", this.state.error);
+    
+      if (this.state.error) {
+        conditiontexterror = "login-error-condition-text-show";
         this.props.onHide();
         this.setState({
           isColorButtonLogin: false,
-          username:'',
-          email:'',
-          password:'',
+          username: "",
+          email: "",
+          password: "",
           token: res.data.token,
           userID: res.data.userID,
           tokenrole: res.data.tokenrole,
-          isAuth: true,
-        })
-        localStorage.setItem('token', res.data.token);
-        localStorage.setItem('userID', res.data.userID);
-        localStorage.setItem('username', res.data.username);
-        localStorage.setItem('tokenrole', res.data.tokenrole);
-        this.props.HandleLoginHeader(true,res.data.tokenrole);
+          isAuth: true
+        });
+        toast.info("Login Success!", {
+          position: toast.POSITION.BOTTOM_CENTER,
+          autoClose: 2000,
+        });
+        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("userID", res.data.userID);
+        localStorage.setItem("username", res.data.username);
+        localStorage.setItem("tokenrole", res.data.tokenrole);
+        this.props.HandleLoginHeader(true, res.data.tokenrole);
       }
     });
 
-    if(!this.state.error){
+    if (!this.state.error) {
       borderinput = " error";
-      conditiontexterror=" error-text";
+      conditiontexterror = " error-text";
     }
-    
-    
   };
 
   render() {
-    
     if (this.state.isColorButtonLogin) {
       borderinput += " form-input-border";
-    }
-    else{
+    } else {
       borderinput = "form-input ";
-   //   conditionpassword ="signup-error-condition-text-show";
+      //   conditionpassword ="signup-error-condition-text-show";
     }
     return (
       <Modal {...this.props} centered>
@@ -148,11 +150,10 @@ class Login extends Component {
                 </div>
 
                 <div className="login-button">
+              
                   <ButtonHeader
-                    
                     buttonname={this.state.buttonheadername}
                     onHandleChangeColor={this.state.isColorButtonLogin}
-               
                   />
                 </div>
               </div>

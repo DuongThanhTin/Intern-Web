@@ -150,6 +150,33 @@
     margin-top:5px;
     margin-left:25px;
     object-fit: contain;
+    position: relative;
+    display: block;
+}
+
+.icon-cart{
+    position: relative;
+    display: block;
+    &:hover .cart-hover {
+        display: block;
+    }
+}
+.cart-quantity{
+    position: absolute;
+    z-index: 1;
+    margin-left:35px;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    background-color: var(--pale-orange);
+}
+
+.cart-hover{
+    position: absolute;
+    display: none;
+    right: 0px;
+    top:55px;
+    z-index:100000;
 }
 
 .header-2{
