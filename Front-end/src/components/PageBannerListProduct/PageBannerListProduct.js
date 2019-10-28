@@ -40,7 +40,7 @@ class PageBannerListProduct extends Component {
   }
   render() {
     const {match}= this.props;
-    console.log(match.url)
+    //console.log(match.url)
     return (
       <Router>
         <div className="pagebanner-product">

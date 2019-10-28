@@ -93,7 +93,7 @@ class AddProduct extends Component {
           description: "",
           quantity: ""
         })
-        toast.success("Success Add Product!", {
+        toast.success(" Add Product Success!", {
           position: toast.POSITION.TOP_RIGHT,
           autoClose: 5000,
         });

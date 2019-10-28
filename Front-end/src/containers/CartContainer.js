@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
 import CartHeader from "../components/CartHeader/CartHeader";
 import ProductCartItem from "../components/ProductCartItem/ProductCartItem";
 
@@ -18,7 +17,8 @@ class CartContainer extends Component {
 
   showCartItem = cart => {
     let result;
-    console.log(cart);
+
+    this.props.showCartQuantity(cart.length)
     if (cart.length > 0) {
       result = cart.map((item, index) => {
         if (item.product) {
@@ -49,9 +49,7 @@ class CartContainer extends Component {
     }
   };
 
-  showCartQuantity = cart => {
-    return cart.length;
-  };
+  
 }
 
 //Connect

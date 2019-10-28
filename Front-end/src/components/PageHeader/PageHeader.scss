@@ -165,6 +165,7 @@
     position: absolute;
     z-index: 1;
     margin-left:35px;
+    top:1px;
     border-radius: 50%;
     width: 18px;
     height: 18px;
@@ -175,13 +176,15 @@
     position: absolute;
     display: none;
     right: 0px;
-    top:55px;
+    top:35px;
     z-index:100000;
 }
 .cartitem-quantity{
     position: absolute;
     top:-1px;
-    right:-1px;
+    right: 0px;
+    display: flex;
+    justify-content: center;
     z-index: 10;
     width: 8px;
     height: 22px;

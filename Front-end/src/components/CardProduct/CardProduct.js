@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import {  Link } from "react-router-dom";
 import "./CardProduct.scss";
 import {toast } from "react-toastify";
 
 class CardProduct extends Component {
   render() {
-    const {_id,name,price,quantity,product} = this.props
+    const {name,price,quantity,product} = this.props
     let routes = (
       <div>
         <div className="cardproduct-image">
@@ -65,7 +64,7 @@ class CardProduct extends Component {
 
   HandleAddtoCart=(product)=>{
     
-    toast.info("Success Add Product to Cart!", {
+    toast.info("Add Product to Cart Success!", {
       position: toast.POSITION.BOTTOM_CENTER,
       autoClose: 2000,
     });

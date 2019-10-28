@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 
-
 import "./PageHeader.scss";
 import Signup from "../../views/Signup/Signup";
 import Login from "../../views/Login/Login";
 import DropDown from "../DropDown/DropDown";
-import CartContainer from "../../containers/CartContainer"
+import CartContainer from "../../containers/CartContainer";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -19,10 +18,10 @@ class PageHeader extends Component {
       login: false,
       cart: false,
       isAuth: false,
-      tokenrole:null,
+      tokenrole: null,
       token: null,
       userID: "",
-      cart:1,
+      cartquantity: 0,
     };
   }
 
@@ -30,11 +29,20 @@ class PageHeader extends Component {
     const token = localStorage.getItem("token");
     const userID = localStorage.getItem("userID");
     const tokenrole = localStorage.getItem("tokenrole");
+    let data= JSON.parse(localStorage.getItem('CART'));
+
     if (!token) {
       return;
     } else {
-      this.setState({ isAuth: true, token: token, userID: userID, tokenrole: tokenrole });
+      this.setState({
+        isAuth: true,
+        token: token,
+        userID: userID,
+        tokenrole: tokenrole,
+        
+      });
     }
+  
   }
 
   HandleSignupToogle = () => {
@@ -54,45 +62,46 @@ class PageHeader extends Component {
     });
   };
 
-  HandleLoginAuth = (isAuth,tokenRole) => {
+  HandleLoginAuth = (isAuth, tokenRole) => {
     this.setState({
       isAuth: isAuth,
-      tokenrole: tokenRole,
+      tokenrole: tokenRole
     });
   };
 
   HandleLogout = () => {
     toast.error("Logout Success!", {
       position: toast.POSITION.BOTTOM_CENTER,
-      autoClose: 2000,
+      autoClose: 2000
     });
-    this.setState({ isAuth: false, token: null,tokenrole:null });
+    this.setState({ isAuth: false, token: null, tokenrole: null });
     localStorage.removeItem("token");
     localStorage.removeItem("username");
     localStorage.removeItem("userID");
     localStorage.removeItem("tokenrole");
   };
 
+  showCartLength=(quantity)=> {
+    this.setState({
+      cartquantity: quantity
+    });
+    
+  }
+
   render() {
-    const {isAuth, tokenrole,cartquantity}=this.state;
-    let cartNumber;
-    if(cartquantity===1){
-      cartNumber=(
+    const { isAuth, tokenrole, cartquantity } = this.state;
+    console.log(cartquantity)
+    
+    let cartNumber = (
       <div>
+        <img className="cart-quantity" alt="" />
         <div className="cartitem-quantity">{cartquantity}</div>
         <div className="cart-hover">
-        <CartContainer showCartQuantity={this.showCartQuantity}/>
+          <CartContainer showCartQuantity={this.showCartLength} />
         </div>
       </div>
-      )
-    }
-    else{
-      cartNumber=(
-      <div></div>
-      )
-    }
+    );
 
-   
     let routes = (
       <div className="register-btn">
         <div className="register-text" onClick={this.HandleSignupToogle}>
@@ -103,28 +112,36 @@ class PageHeader extends Component {
             <strong>Log In </strong>
           </div>
         </button>
-   
+
         <div className="icon-cart">
-        <img className="cart-quantity" alt=""/>
-        <img className="logo-icon " src="/images/icon/cart.svg" alt="" onClick={this.HandleCartToogle} />
+          <img
+            className="logo-icon "
+            src="/images/icon/cart.svg"
+            alt=""
+            onClick={this.HandleCartToogle}
+          />
           {cartNumber}
         </div>
       </div>
     );
 
-    if (isAuth && tokenrole==="customer") {
+    if (isAuth && tokenrole === "customer") {
       routes = (
         <div className="register-btn">
           <button className="avatar-customer" onClick={this.HandleLogout} />
-      
           <div className="icon-cart">
-            <img className="logo-icon" src="/images/icon/cart.svg" alt="" onClick={this.HandleCartToogle} />
+            <img
+              className="logo-icon"
+              src="/images/icon/cart.svg"
+              alt=""
+              onClick={this.HandleCartToogle}
+            />
             {cartNumber}
           </div>
         </div>
       );
     }
-    if (isAuth && tokenrole==="admin") {
+    if (isAuth && tokenrole === "admin") {
       routes = (
         <div className="register-btn">
           <button className="avatar-admin" onClick={this.HandleLogout} />
@@ -133,7 +150,7 @@ class PageHeader extends Component {
           </div>
         </div>
       );
-      return <Redirect to="/admin"/>
+      return <Redirect to="/admin" />;
     }
 
     return (
@@ -179,7 +196,7 @@ class PageHeader extends Component {
           onHide={this.HandleLoginToogle}
           HandleLoginHeader={this.HandleLoginAuth}
         />
-             <ToastContainer/>
+        <ToastContainer />
       </div>
     );
   }

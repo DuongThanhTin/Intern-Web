@@ -52,9 +52,6 @@ class App extends Component {
           <Route exact path="/" component={Homepage}/>
           <Route  path="/categories" component={Homepage}/> 
           <Route  path="/admin" render ={()=>(<AdminPage/>)}/>
-      
-       
-      
       </div>
     );
   }
